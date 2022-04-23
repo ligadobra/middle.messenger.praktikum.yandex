@@ -3,3 +3,5 @@ Chat-Design: https://www.figma.com/file/VEiHMZNKrOcmhe1ECR9VHW/%D0%94%D0%BE%D0%B
 
 "build": "parcel build ./src/index.html"
 "start": "npm run build && node index.js"
+
+Ссылка на pull request: https://github.com/ligadobra/middle.messenger.praktikum.yandex/pull/1
