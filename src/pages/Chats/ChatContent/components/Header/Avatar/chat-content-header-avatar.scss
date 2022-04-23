@@ -1,0 +1,20 @@
+.chat-content-header-avatar {
+  display: flex;
+  align-items: center;
+  column-gap: 25px;
+
+  &__pic {
+    width: 65px;
+    height: 65px;
+    border-radius: 100%;
+    background-color: #f4f4f4;
+    cursor: pointer;
+  }
+
+  &__label {
+    font-family: "Qanelas-Medium";
+    font-size: 16px;
+    line-height: 22px;
+    cursor: pointer;
+  }
+}

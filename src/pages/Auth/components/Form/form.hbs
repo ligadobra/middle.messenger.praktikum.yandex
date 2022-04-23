@@ -1,0 +1,12 @@
+<div class="signin">
+    <div class="signin__header">
+        <a href="/auth" class="signin-link" id="signin">Вход</a>
+        <img src="svg/separator.svg" />
+        <a href="/registration" class="signin-link" id="registration">Регистрация</a>
+    </div>
+    <div class="signin__inputs">
+        {{> textfield name="login" placeholder="Ваш логин" label="Логин"}}
+        {{> textfield name="password" placeholder="Ваш пароль" label="Пароль"}}
+    </div>
+    {{> button text="Войти" onClick="handleButtonClick"}}
+</div>

@@ -1,0 +1,17 @@
+.chat-content-header {
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+  padding: 25px;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__actions {
+    cursor: pointer;
+    transform: rotate(90deg);
+  }
+}

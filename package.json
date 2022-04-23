@@ -1,0 +1,21 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "watch": "parcel watch ./src/index.html",
+    "build": "parcel build ./src/index.html",
+    "start": "npm run build && node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.4.1",
+    "parcel": "^2.4.1",
+    "parcel-transformer-hbs": "^1.0.4"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}

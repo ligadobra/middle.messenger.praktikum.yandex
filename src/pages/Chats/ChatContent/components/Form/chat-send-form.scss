@@ -1,0 +1,34 @@
+.chat-send-form {
+  height: 60px;
+  box-sizing: border-box;
+  width: 75%;
+  background-color: #fcfcfc;
+  border-top: 1px solid #00000005;
+  padding: 15px 25px;
+  column-gap: 15px;
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  bottom: 0;
+  box-shadow: 3px 0px 5px rgb(0 0 0 / 5%);
+
+  &__field {
+    width: 100%;
+  }
+
+  &__field input {
+    width: 100%;
+    height: 30px !important;
+    background: 0 0 !important;
+  }
+
+  &__attachment {
+    display: flex;
+    cursor: pointer;
+  }
+
+  &__send {
+    display: flex;
+    cursor: pointer;
+  }
+}

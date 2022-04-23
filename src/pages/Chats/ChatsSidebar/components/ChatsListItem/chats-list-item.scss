@@ -1,0 +1,52 @@
+.chat-list-item {
+  display: flex;
+  column-gap: 15px;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+
+  &__data {
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  &__recipient {
+    font-family: "Qanelas-Medium";
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 21px;
+    color: #6a6a6a;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 2px;
+  }
+
+  &__time {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  &__unread {
+    background: #5ce5b7;
+    border-radius: 100px;
+    padding: 2px 10px;
+    font-size: 14px;
+    line-height: 19px;
+    color: #ffffff;
+  }
+}
+
+.chat-list-item:hover {
+  background-color: #d7fff2;
+}
