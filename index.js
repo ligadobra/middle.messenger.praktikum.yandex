@@ -1,8 +1,6 @@
 const express = require("express");
 const app = express();
 
-const port = 3000;
-
 app.use(express.static(__dirname + "/dist"));
 app.use(express.static(__dirname + "/public"));
 app.use("/svg", express.static(__dirname + "/src/assets/svg"));
@@ -24,4 +22,4 @@ app.get("*", (req, res) => {
   }
 });
 
-app.listen(port, () => console.log(`Listening on port ${port}!`));
+app.listen(process.env.PORT || 3000, () => console.log(`Listening on port ${process.env.PORT || 3000}!`));
