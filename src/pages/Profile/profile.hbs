@@ -1,0 +1,27 @@
+<div class="profile">
+    <div class="profile__avatar">
+        <img src="/svg/default-avatar.svg" />
+    </div>
+    <div class="profile__columns">    
+        <div class="profile__inputs">
+            <div class="profile__change-info-text">Изменить данные</div>
+            <div class="profile__inputs-column">
+                {{> textfield name="first_name" placeholder="Ваше имя" label="Имя"}}
+                {{> textfield name="second_name" placeholder="Ваша фамилия" label="Фамилия"}}
+                {{> textfield name="display_name" placeholder="Имя в поиске" label="Имя в поиске"}}
+                {{> textfield name="phone" placeholder="Ваш телефон" label="Телефон"}}
+                {{> textfield name="email" placeholder="Ваш email" label="Email"}}
+                {{> textfield name="login" placeholder="Ваш логин" label="Логин"}}
+            </div>
+        </div>
+        <div class="profile__change-password">
+            <div class="profile__change-info-text">Изменить пароль</div>
+            <div class="profile__change-password-rows">
+                {{> textfield name="oldPassword" placeholder="Старый пароль" label="Старый пароль"}}
+                {{> textfield name="newPassword" placeholder="Новый пароль" label="Новый пароль"}}
+            </div>
+        </div>
+    </div>
+    <div class="profile__inputs-save">{{> button text="Сохранить" onClick="handleButtonClick"}}</div>
+    <input name="avatar" class="profile__avatar-input" />
+</div>

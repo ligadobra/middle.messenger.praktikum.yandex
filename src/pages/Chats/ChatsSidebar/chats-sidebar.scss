@@ -1,0 +1,22 @@
+.chats-sidebar {
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+
+  &__link {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+    padding: 0 15px;
+  }
+
+  &__data {
+    display: flex;
+    flex-direction: column;
+    row-gap: 35px;
+  }
+
+  &__search {
+    padding: 0 15px;
+  }
+}
