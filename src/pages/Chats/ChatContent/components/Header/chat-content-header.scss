@@ -1,0 +1,19 @@
+.chat-content-header {
+  flex-direction: column;
+  row-gap: 25px;
+  padding: 0 25px;
+  height: 140px;
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__actions {
+    cursor: pointer;
+    transform: rotate(90deg);
+  }
+}

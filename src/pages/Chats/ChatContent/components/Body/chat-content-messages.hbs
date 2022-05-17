@@ -1,0 +1,7 @@
+<div class="chat-messages">
+    <div class="chat-messages__container">
+        {{#each messages}}
+            {{> chat-content-message message=message time=time isRead=isRead isMy=isMy}}
+        {{/each}}
+    </div>
+</div>

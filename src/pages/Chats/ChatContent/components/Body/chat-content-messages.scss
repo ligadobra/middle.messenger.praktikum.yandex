@@ -1,0 +1,11 @@
+.chat-messages {
+  margin-bottom: 60px;
+
+  &__container {
+    flex-direction: column;
+    row-gap: 20px;
+    display: flex;
+    height: calc(100vh - 200px);
+    overflow: auto;
+  }
+}
