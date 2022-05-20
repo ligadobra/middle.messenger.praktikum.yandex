@@ -4,6 +4,4 @@ import "./button.scss";
 
 Handlebars.registerPartial("button", tpl);
 
-export default (text: string, onClick: string) => {
-  return tpl({ text, onClick });
-};
+export default tpl;

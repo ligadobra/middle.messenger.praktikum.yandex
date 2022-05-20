@@ -8,6 +8,4 @@ Handlebars.registerPartial("signIn", tpl);
 
 setTimeout(() => menuCheck(), 100);
 
-export default () => {
-  return tpl();
-};
+export default tpl;

@@ -4,6 +4,4 @@ import "./auth.layout.scss";
 
 //Handlebars.registerPartial('auth', tpl);
 
-export default () => {
-  return tpl();
-};
+export default tpl;
