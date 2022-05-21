@@ -50,6 +50,4 @@ const chat: IChat = {
 
 Handlebars.registerPartial("chat-content", tpl(chat));
 
-export default () => {
-  return tpl(chat);
-};
+export default tpl;
