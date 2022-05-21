@@ -1,15 +1,40 @@
-<div class="input">
-  <label for="{{name}}" class="input__label">{{label}}</label>
-  <input
+{{#if label}}
+  <label for="{{name}}" class="input__label {{labelclass}}">{{label}}</label>
+{{/if}}
+<input
+  {{#if type}}
+    type={{type}}
+  {{/if}}
+  {{#unless type}}
     type="text"
-    autocomplete="true"
+  {{/unless}}
+
+  {{#if autocomplete}}
+    autocomplete={{autocomplete}}
+  {{/if}}
+  
+  {{#if autofocus}}
+    autofocus={{autofocus}}
+  {{/if}}
+  {{#unless autofocus}}
     autofocus="true"
-    maxlength="100"
-    minlength="5"
-    name="{{name}}"
+  {{/unless}}
+  
+  {{#if maxlength}}
+    maxlength={{maxlength}}
+  {{/if}}
+
+  {{#if minlength}}
+    minlength={{minlength}}
+  {{/if}}
+  
+  {{#if placeholder}}
     placeholder="{{placeholder}}"
-    value="{{value}}"
-    id="{{name}}"
-    class="input__view"
-  />
-</div>
+  {{/if}}
+  
+  
+  name="{{name}}"
+  value="{{value}}"
+  id="{{name}}"
+  class="input__view {{inputclass}}"
+/>

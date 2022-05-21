@@ -7,13 +7,6 @@ export default class Button extends Component {
   }
 
   addEvents() {
-    const element = this.getContent();
-    element.addEventListener("click", (e: MouseEvent) => {
-      e.preventDefault();
-      e.stopPropagation();
-      console.log(e.target, "click");
-    });
-
     super.addEvents();
   }
 }

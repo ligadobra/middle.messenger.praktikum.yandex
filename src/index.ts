@@ -6,9 +6,12 @@
 // import profile from "./pages/Profile/profile";
 
 import Button from "./components/button";
+import TextField from "./components/text-field";
 import AuthLayout from "./layouts/auth";
 import DefaultLayout from "./layouts/default";
 import Auth from "./pages/Auth";
+import { AuthFormComponent } from "./pages/Auth/auth";
+import AuthForm from "./pages/Auth/components/Form";
 import render from "./utils/render";
 
 // const pathName = window.location.pathname;
@@ -30,19 +33,13 @@ import render from "./utils/render";
 // } else {
 // }
 
-const token = "123";
-
-// const button = new Button("div", {
-//   text: "Igor",
-//   attr: {
-//     class: "button",
-//   },
-// });
+const token = "";
 
 const AuthPage = new Auth("div", {
   attr: {
     class: "auth",
   },
+  AuthForm: AuthFormComponent,
 });
 
 const AuthLayoutComponent = new AuthLayout("div", {

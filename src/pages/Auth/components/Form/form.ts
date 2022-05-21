@@ -20,6 +20,4 @@ export function menuCheck() {
   }
 }
 
-export default () => {
-  return tpl();
-};
+export default tpl;
