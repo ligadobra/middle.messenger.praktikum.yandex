@@ -1,0 +1,81 @@
+.profile {
+  width: 600px;
+  height: calc(100% - 120px);
+  row-gap: 30px;
+  margin: auto;
+  padding: 60px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  &__columns {
+    display: flex;
+    column-gap: 50px;
+  }
+
+  &__avatar {
+    width: 167px;
+    height: 167px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    background-color: #ebfff8;
+
+    &-input {
+      visibility: hidden;
+    }
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    row-gap: 35px;
+
+    &-save {
+      width: fit-content;
+    }
+
+    &-column {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+    }
+  }
+
+  &__change-info-text {
+    font-family: "Qanelas-Medium";
+    font-size: 20px;
+    color: rgba(92, 171, 229, 1);
+  }
+
+  &__change-password {
+    display: flex;
+    flex-direction: column;
+    row-gap: 35px;
+
+    &-rows {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+    }
+  }
+}
+
+.profile__inputs-save .button {
+  height: 47px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 0;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  padding: 13px 40px;
+  font-size: 26px;
+  display: flex;
+  background: #5ce5b7;
+  font-size: 16px;
+  line-height: 22px;
+  color: #ffffff;
+}
