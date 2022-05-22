@@ -8,10 +8,21 @@ import {
   ChatsSidebarComponent,
 } from "./pages/Chats/chats";
 import Profile from "./pages/Profile";
+import {
+  nameProfile,
+  secondNameProfile,
+  searchNameProfile,
+  phoneProfile,
+  emailProfile,
+  loginProfile,
+  oldPassProfile,
+  newPassProfile,
+  buttonProfile,
+} from "./pages/Profile/profile";
 import render from "./utils/render";
 
 const appStore = {
-  token: "123",
+  token: "",
 };
 const currentPath = document.location.pathname;
 
@@ -28,18 +39,27 @@ const AuthPage = new Auth("div", {
 
 export const ProfileComponent = new Profile("div", {
   attr: {
-    class: "profile"
+    class: "profile",
   },
-})
+  nameProfile,
+  secondNameProfile,
+  searchNameProfile,
+  phoneProfile,
+  emailProfile,
+  loginProfile,
+  oldPassProfile,
+  newPassProfile,
+  buttonProfile,
+});
 
 const ChatsPage = new Chats("div", {
   attr: {
     class: "chats",
   },
-  isChat: currentPath === '/profile' ? false : true,
+  isChat: currentPath === "/profile" ? false : true,
   ChatsSidebarComponent,
   ChatContentComponent,
-  ProfileComponent
+  ProfileComponent,
 });
 
 const AuthLayoutComponent = new AuthLayout("div", {
