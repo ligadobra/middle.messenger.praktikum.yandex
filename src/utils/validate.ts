@@ -1,3 +1,25 @@
+function findAndShineElement(elName: string, result: boolean) {
+  const elementRoot = document.getElementsByTagName("input");
+
+  for (let i = 0; i < elementRoot.length; i++) {
+    const currentElementName = elementRoot[i].name;
+    const currentElement = elementRoot[i];
+    if (currentElementName === elName) {
+      if (result === true) {
+        if (currentElement.classList.contains("input__wrong")) {
+          currentElement.classList.remove("input__wrong");
+        }
+        currentElement.classList.add("input__ok");
+      } else if (result === false) {
+        if (currentElement.classList.contains("input__ok")) {
+          currentElement.classList.remove("input__ok");
+        }
+        currentElement.classList.add("input__wrong");
+      }
+    }
+  }
+}
+
 export function checkLogin(e?: any, value?: string) {
   let element: string = "";
 
@@ -11,8 +33,7 @@ export function checkLogin(e?: any, value?: string) {
   const minLength = 3;
   const validStrFormat = new RegExp(/(?!^\d+$)^[a-zA-Z0-9-_]+$/);
 
-  const isOkLength =
-    element?.length <= maxLength && element?.length >= minLength;
+  const isOkLength = element?.length <= maxLength && element?.length >= minLength;
   const isOkFormat = validStrFormat.test(element);
 
   findAndShineElement("login", isOkLength && isOkFormat);
@@ -33,8 +54,7 @@ export function checkPassword(e?: any, value?: string) {
   const minLength = 8;
   const validStrFormat = new RegExp(/(?=.*\d)(?=.*[A-Z])/);
 
-  const isOkLength =
-    element?.length <= maxLength && element?.length >= minLength;
+  const isOkLength = element?.length <= maxLength && element?.length >= minLength;
   const isOkFormat = validStrFormat.test(element);
 
   findAndShineElement("password", isOkLength && isOkFormat);
@@ -121,28 +141,6 @@ export function checkMessage(e?: any, value?: string) {
   findAndShineElement("message", isNotEmpty);
 
   return isNotEmpty;
-}
-
-function findAndShineElement(elName: string, result: boolean) {
-  const elementRoot = document.getElementsByTagName("input");
-
-  for (let i = 0; i < elementRoot.length; i++) {
-    const currentElementName = elementRoot[i].name;
-    const currentElement = elementRoot[i];
-    if (currentElementName === elName) {
-      if (result === true) {
-        if (currentElement.classList.contains("input__wrong")) {
-          currentElement.classList.remove("input__wrong");
-        }
-        currentElement.classList.add("input__ok");
-      } else if (result === false) {
-        if (currentElement.classList.contains("input__ok")) {
-          currentElement.classList.remove("input__ok");
-        }
-        currentElement.classList.add("input__wrong");
-      }
-    }
-  }
 }
 
 export function executeAllChecks(values: { name: string; value: string }[]) {

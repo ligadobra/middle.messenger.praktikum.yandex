@@ -2,7 +2,7 @@ export const METHODS = {
   GET: "GET",
   PUT: "PUT",
   POST: "POST",
-  DELETE: "DELETE",
+  DELETE: "DELETE"
 };
 
 export function queryStringify(data: any) {
@@ -32,7 +32,7 @@ export class HTTPTransport {
       {
         ...options,
         data: queryStringify((options as any).data),
-        method: METHODS.GET,
+        method: METHODS.GET
       },
       (options as any).timeout
     );
@@ -63,7 +63,7 @@ export class HTTPTransport {
   }
 
   static request(url, options, timeout = 5000) {
-    return new Promise(function (resolve, reject) {
+    return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       if (options.method !== "GET") {
         xhr.open(options.method, url);
@@ -77,20 +77,20 @@ export class HTTPTransport {
         } else {
           reject({
             status: xhr.status,
-            statusText: xhr.statusText,
+            statusText: xhr.statusText
           });
         }
       };
 
-      xhr.onerror = function () {
+      xhr.onerror = () => {
         reject({
           status: xhr.status,
-          statusText: xhr.statusText,
+          statusText: xhr.statusText
         });
       };
 
       if (options.headers) {
-        Object.keys(options.headers).forEach(function (key) {
+        Object.keys(options.headers).forEach((key) => {
           xhr.setRequestHeader(key, options.headers[key]);
         });
       }

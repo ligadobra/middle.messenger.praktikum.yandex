@@ -1,6 +1,6 @@
+import Handlebars from "handlebars";
 import { v4 as makeUUID } from "uuid";
 import { EventBus } from "./event-bus";
-import Handlebars from "handlebars";
 
 export class Component {
   static EVENTS = {
@@ -11,10 +11,15 @@ export class Component {
   };
 
   private _props: any;
+
   private _children: any;
+
   private _id: string;
+
   private _element: any;
+
   private _meta: any;
+
   private _eventBus: EventBus;
 
   constructor(tag = "div", propsAndChilds = {}) {
@@ -69,7 +74,7 @@ export class Component {
 
   render() {}
 
-  addEvents(e?: string | string[], callback?: (e: Event | InputEvent) => void) {
+  addEvents(e?: string | string[], callback?: () => void) {
     const { events = {} } = this._props;
 
     if (e?.length && typeof callback === "function") {
@@ -115,7 +120,7 @@ export class Component {
   }
 
   compile(template: any, props?: object) {
-    if (typeof props == "undefined") {
+    if (typeof props === "undefined") {
       props = this._props;
     }
 
@@ -164,6 +169,7 @@ export class Component {
   }
 
   componentDidUpdate(oldProps, newProps) {
+    console.log(oldProps, newProps);
     return true;
   }
 

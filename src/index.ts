@@ -22,7 +22,7 @@ import {
 import render from "./utils/render";
 
 const appStore = {
-  token: "4645",
+  token: "",
 };
 const currentPath = document.location.pathname;
 
