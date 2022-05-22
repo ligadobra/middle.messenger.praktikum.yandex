@@ -6,4 +6,10 @@
   &__text {
     color: rgba(92, 171, 229, 1) !important;
   }
+
+  &__img {
+    &_back {
+      transform: rotate(180deg);
+    }
+  }
 }

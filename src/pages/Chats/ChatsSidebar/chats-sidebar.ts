@@ -4,7 +4,9 @@ import TextField from "../../../components/text-field";
 import ChatsList from "./components/ChatsList";
 import "./chats-sidebar.scss";
 
-export const chats = {
+const isProfilePage = document.location.pathname === "/profile";
+
+const chats = {
   chats: [
     {
       name: "Игорь Пупкин",
@@ -31,8 +33,9 @@ export const LinkComponent = new Link("div", {
   attr: {
     class: "link",
   },
-  url: "/profile",
-  text: "Профиль пользователя",
+  isBack: isProfilePage ? true : false,
+  url: isProfilePage ? "/chats" : "/profile",
+  text: isProfilePage ? "Назад к чату" : "Профиль пользователя",
 });
 
 export const SearchComponent = new TextField("div", {

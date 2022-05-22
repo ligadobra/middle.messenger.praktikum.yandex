@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 25% 75%;
   height: 100vh;
+  overflow: hidden;
 
   &__content {
     overflow: hidden;

@@ -7,11 +7,13 @@ import {
   ChatContentComponent,
   ChatsSidebarComponent,
 } from "./pages/Chats/chats";
+import Profile from "./pages/Profile";
 import render from "./utils/render";
 
 const appStore = {
   token: "123",
 };
+const currentPath = document.location.pathname;
 
 function setToken() {
   appStore.token = "123";
@@ -24,12 +26,20 @@ const AuthPage = new Auth("div", {
   AuthForm: AuthFormComponent,
 });
 
+export const ProfileComponent = new Profile("div", {
+  attr: {
+    class: "profile"
+  },
+})
+
 const ChatsPage = new Chats("div", {
   attr: {
     class: "chats",
   },
+  isChat: currentPath === '/profile' ? false : true,
   ChatsSidebarComponent,
   ChatContentComponent,
+  ProfileComponent
 });
 
 const AuthLayoutComponent = new AuthLayout("div", {
