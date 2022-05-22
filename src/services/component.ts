@@ -114,7 +114,7 @@ export class Component {
     }
 
     const propsAndStubs = { ...props };
-    
+
     Object.entries(this._children).forEach(([key, child]) => {
       propsAndStubs[key] = `<div data-id="${(child as any)._id}"></div>`;
     });
@@ -130,7 +130,7 @@ export class Component {
         stub.replaceWith((child as any).getContent());
       }
     });
-    console.log(typeof (fragment as any).content)
+
     return (fragment as any).content;
   }
 
