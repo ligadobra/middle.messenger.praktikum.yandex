@@ -69,8 +69,14 @@ export class Component {
 
   render() {}
 
-  addEvents() {
+  addEvents(e?: string | string[], callback?: (e: Event | InputEvent) => void) {
     const { events = {} } = this._props;
+
+    if (e?.length && typeof callback === "function") {
+      Object.values(e).forEach((eventName) => {
+        this._element.addEventListener(eventName, callback);
+      });
+    }
 
     Object.keys(events).forEach((eventName) => {
       this._element.addEventListener(eventName, events[eventName]);
