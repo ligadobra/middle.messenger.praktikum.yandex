@@ -2,6 +2,7 @@ import Button from "../../../../../components/button";
 import TextField from "../../../../../components/text-field";
 import tpl from "./chat-send-form.hbs";
 import "./chat-send-form.scss";
+import { SendMessage } from "./functions/send-message";
 
 export const ChatTextField = new TextField("div", {
   attr: {
@@ -17,7 +18,7 @@ export const ButtonSend = new Button("img", {
   },
   events: {
     click: (e) => {
-      console.log("Message send");
+      SendMessage();
     },
   },
 });

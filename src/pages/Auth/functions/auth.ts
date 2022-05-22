@@ -1,3 +1,4 @@
+import { executeAllChecks } from "../../../utils/validate";
 import { getLoginFormData } from "./get-login-form-data";
 import { getRegFormData } from "./get-reg-form-data";
 
@@ -6,10 +7,32 @@ export const isSignUpPage = () => currentPathname === "/registration";
 
 export function signIn() {
   const formData = getLoginFormData();
-  console.log(formData);
+  const valuesForCheck = [
+    { name: "login", value: formData.login ?? "" },
+    { name: "password", value: formData.password ?? "" },
+  ];
+  console.log(
+    executeAllChecks(valuesForCheck)
+      ? "Data ready to send!"
+      : "Oh no! Maybe form has some errors",
+    formData
+  );
 }
 
 export function signUp() {
   const formData = getRegFormData();
-  console.log(formData);
+  const valuesForCheck = [
+    { name: "login", value: formData.login ?? "" },
+    { name: "password", value: formData.password ?? "" },
+    { name: "first_name", value: formData.name ?? "" },
+    { name: "second_name", value: formData.secondName ?? "" },
+    { name: "phone", value: formData.phone ?? "" },
+    { name: "email", value: formData.email ?? "" },
+  ];
+  console.log(
+    executeAllChecks(valuesForCheck)
+      ? "Data ready to send!"
+      : "Oh no! Maybe form has some errors",
+    formData
+  );
 }
