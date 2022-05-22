@@ -1,10 +1,15 @@
-import Handlebars from "handlebars";
 import tpl from "./chat-content.hbs";
-import "./components/Header/chat-content-header";
-import "./components/Body/chat-content-messages";
-import "./components/Form/chat-send-form";
-import "../../../components/text-field/text-field";
 import { IChat } from "./chat-content.types";
+import ChatContentHeader from "./components/Header";
+import { SeparatorComponent } from "./components/Header/chat-content-header";
+import ChatContentAvatar from "./components/Header/Avatar";
+import ChatForm from "./components/Form";
+import {
+  AddAttachmentButton,
+  ButtonSend,
+  ChatTextField,
+} from "./components/Form/chat-send-form";
+import ChatBody from "./components/Body";
 
 const chat: IChat = {
   chatInfo: {
@@ -48,6 +53,36 @@ const chat: IChat = {
   ],
 };
 
-Handlebars.registerPartial("chat-content", tpl(chat));
+export const ChatContentAvatarComponent = new ChatContentAvatar("div", {
+  attr: {
+    class: "chat-content-header-avatar",
+  },
+  name: chat.chatInfo.recipient.name,
+  avatar: "",
+});
+
+export const ChatContentHeaderComponent = new ChatContentHeader("div", {
+  attr: {
+    class: "chat-content-header",
+  },
+  SeparatorComponent,
+  ChatContentAvatarComponent,
+});
+
+export const ChatFormComponent = new ChatForm("div", {
+  attr: {
+    class: "chat-send-form",
+  },
+  ChatTextField,
+  ButtonSend,
+  AddAttachmentButton,
+});
+
+export const ChatBodyComponent = new ChatBody("div", {
+  attr: {
+    class: "chat-messages",
+  },
+  messages: chat.messages,
+});
 
 export default tpl;

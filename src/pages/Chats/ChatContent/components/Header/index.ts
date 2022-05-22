@@ -1,7 +1,7 @@
 import { Component } from "../../../../../services/component";
-import tpl from "./chats-list";
+import tpl from "./chat-content-header";
 
-export default class ChatsList extends Component {
+export default class ChatContentHeader extends Component {
   render(): object {
     return this.compile(tpl);
   }

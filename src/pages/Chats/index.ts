@@ -2,7 +2,7 @@ import { Component } from "../../services/component";
 import tpl from "./chats";
 
 export default class Chats extends Component {
-  render() {
+  render(): object {
     return this.compile(tpl);
   }
 }

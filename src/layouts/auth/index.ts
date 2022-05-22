@@ -3,7 +3,7 @@ import "../../components/button";
 import tpl from './auth.layout';
 
 export default class AuthLayout extends Component {
-  render(): string {
+  render(): object {
     return this.compile(tpl);
   }
 }
