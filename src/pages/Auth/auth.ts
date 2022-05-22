@@ -3,65 +3,8 @@ import { menuCheck } from "./components/Form/form";
 import Button from "../../components/button";
 import TextField from "../../components/text-field";
 import AuthForm from "./components/Form";
-import { TSignIn, TSignUp } from "./auth.types";
+import { signUp, signIn, isSignUpPage } from "./functions/auth";
 import "./auth.scss";
-
-const currentPathname = document.location.pathname;
-const isSignUpPage = () => currentPathname === "/registration";
-
-function getLoginFormData() {
-  const formData: TSignIn = { login: "", password: "" };
-  const inputs = document
-    .getElementsByClassName("signin")[0]
-    .getElementsByTagName("input");
-
-  formData.login = inputs[0].value;
-  formData.password = inputs[1].value;
-
-  return formData;
-}
-
-function getRegFormData() {
-  const formData: TSignUp = {
-    login: "",
-    password: "",
-    name: "",
-    secondName: "",
-    email: "",
-    phone: "",
-  };
-  const inputs = document
-    .getElementsByClassName("registration-form")[0]
-    .getElementsByTagName("input");
-
-  for (let i = 0; i < inputs.length; i++) {
-    if (inputs[i].name === "first_name") {
-      formData.name = inputs[i].value;
-    } else if (inputs[i].name === "phone") {
-      formData.phone = inputs[i].value;
-    } else if (inputs[i].name === "login") {
-      formData.login = inputs[i].value;
-    } else if (inputs[i].name === "second_name") {
-      formData.secondName = inputs[i].value;
-    } else if (inputs[i].name === "email") {
-      formData.email = inputs[i].value;
-    } else if (inputs[i].name === "password") {
-      formData.password = inputs[i].value;
-    }
-  }
-
-  return formData;
-}
-
-function signIn() {
-  const formData = getLoginFormData();
-  console.log(formData);
-}
-
-function signUp() {
-  const formData = getRegFormData();
-  console.log(formData);
-}
 
 const authButton = new Button("div", {
   text: !isSignUpPage() ? "Войти" : "Создать аккаунт",
