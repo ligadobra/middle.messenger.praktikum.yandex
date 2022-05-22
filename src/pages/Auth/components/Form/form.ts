@@ -1,10 +1,5 @@
-import Handlebars from "handlebars";
 import tpl from "./form.hbs";
-import "../../../../components/button/button";
-import '../../../../components/text-field/text-field';
 import "./form.scss";
-
-Handlebars.registerPartial("signin-form", tpl);
 
 export function menuCheck() {
   const signin = document.getElementById("signin");

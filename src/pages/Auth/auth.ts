@@ -1,14 +1,10 @@
-import Handlebars from "handlebars";
-import { menuCheck } from "./components/Form/form";
 import tpl from "./auth.hbs";
-import "./components/Form/form";
-import "./auth.scss";
+import { menuCheck } from "./components/Form/form";
 import Button from "../../components/button";
 import TextField from "../../components/text-field";
 import AuthForm from "./components/Form";
 import { TSignIn, TSignUp } from "./auth.types";
-
-Handlebars.registerPartial("signIn", tpl);
+import "./auth.scss";
 
 const currentPathname = document.location.pathname;
 const isSignUpPage = () => currentPathname === "/registration";
