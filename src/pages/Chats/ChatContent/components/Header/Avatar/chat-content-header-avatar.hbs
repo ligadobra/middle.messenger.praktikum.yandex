@@ -1,4 +1,9 @@
-<div class="chat-content-header-avatar">
-  <a href="/profile"><div class="chat-content-header-avatar__pic"></div></a>
-  <a href="/profile" class="chat-content-header-avatar__label">{{name}}</a>
-</div>
+<a href="/profile">
+  {{#if avatar}}
+    <img src="{{avatar}}" alt="avatar" />
+  {{/if}}
+  {{#unless avatar}}
+    <div class="chat-content-header-avatar__pic"></div>
+  {{/unless}}
+</a>
+<a href="/profile" class="chat-content-header-avatar__label">{{name}}</a>

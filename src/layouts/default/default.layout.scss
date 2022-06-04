@@ -1,11 +1,1 @@
-.chats-layout {
-  display: grid;
-  grid-template-columns: 25% 75%;
-  height: 100vh;
 
-  &__list {
-    background-color: #fcfcfc;
-    border-right: 1px solid rgba(0, 0, 0, 0.02);
-    box-shadow: 0px 3px 5px rgb(0 0 0 / 5%);
-  }
-}

@@ -1,0 +1,11 @@
+<div class="chats__list">
+  {{{ChatsSidebarComponent}}}
+</div>
+{{#if isChat}}
+  <div class="chats__content">
+    {{{ChatContentComponent}}}
+  </div>
+{{/if}}
+{{#unless isChat}}
+  {{{ProfileComponent}}}
+{{/unless}}

@@ -1,8 +1,10 @@
 .chat-content-header {
-  display: flex;
   flex-direction: column;
   row-gap: 25px;
-  padding: 25px;
+  padding: 0 25px;
+  height: 140px;
+  display: flex;
+  justify-content: center;
 
   &__container {
     display: flex;

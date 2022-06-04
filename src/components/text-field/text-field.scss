@@ -24,4 +24,12 @@
       outline: none;
     }
   }
+
+  &__ok {
+    border: 1px solid rgb(79, 192, 79);
+  }
+
+  &__wrong {
+    border: 1px solid red;
+  }
 }

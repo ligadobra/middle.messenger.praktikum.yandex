@@ -1,1 +1,7 @@
-<div class="avatar"></div>
+{{#if src}}
+  <img src={{src}} alt="avatar" />
+{{/if}}
+
+{{#unless src}}
+  <div class="avatar"></div>
+{{/unless}}
