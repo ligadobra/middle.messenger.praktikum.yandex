@@ -169,7 +169,6 @@ export class Component {
   }
 
   componentDidUpdate(oldProps, newProps) {
-    console.log(oldProps, newProps);
     return true;
   }
 

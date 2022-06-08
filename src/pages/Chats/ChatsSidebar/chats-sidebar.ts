@@ -3,8 +3,9 @@ import Link from "../../../components/link";
 import TextField from "../../../components/text-field";
 import ChatsList from "./components/ChatsList";
 import "./chats-sidebar.scss";
+import { currentPath } from "../../../constants/system";
 
-const isProfilePage = document.location.pathname === "/profile";
+const isProfilePage = currentPath === "/profile";
 
 const chats = {
   chats: [

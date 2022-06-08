@@ -1,5 +1,9 @@
 import tpl from "./auth.hbs";
-import { menuCheck } from "./components/Form/form";
+import {
+  menuCheck,
+  onSignInClick,
+  onSignUpClick,
+} from "./components/Form/form";
 import Button from "../../components/button";
 import TextField from "../../components/text-field";
 import AuthForm from "./components/Form";
@@ -16,6 +20,36 @@ const authButton = new Button("div", {
       e.preventDefault();
       e.stopPropagation();
       isSignUpPage() ? signUp() : signIn();
+    },
+  },
+});
+
+const signInButton = new Button("div", {
+  text: "Вход",
+  attr: {
+    class: "signin-link",
+    id: "signin",
+  },
+  events: {
+    click: (e: MouseEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      onSignInClick();
+    },
+  },
+});
+
+const signUpButton = new Button("div", {
+  text: "Регистрация",
+  attr: {
+    class: "signin-link",
+    id: "registration",
+  },
+  events: {
+    click: (e: MouseEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      onSignUpClick();
     },
   },
 });
@@ -106,8 +140,12 @@ export const AuthFormComponent = new AuthForm("div", {
   emailReg,
   loginReg,
   passReg,
+  signInButton,
+  signUpButton,
 });
 
-setTimeout(() => menuCheck(), 100);
+setTimeout(() => {
+  menuCheck();
+}, 100);
 
 export default tpl;
