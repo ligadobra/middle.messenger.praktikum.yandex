@@ -1,8 +1,10 @@
 import { currentPath } from "../constants/system";
 import AuthLayout from "../layouts/auth";
 import DefaultLayout from "../layouts/default";
-import Auth from "../pages/Auth";
-import { AuthFormComponent } from "../pages/Auth/auth";
+import AuthIn from "../pages/Auth/AuthIn";
+import { AuthFormComponentIn } from "../pages/Auth/AuthIn/auth-in";
+import AuthUp from "../pages/Auth/AuthUp";
+import { AuthFormComponentUp } from "../pages/Auth/AuthUp/auth-up";
 import Chats from "../pages/Chats";
 import {
   ChatContentComponent,
@@ -21,11 +23,18 @@ import {
   buttonProfile,
 } from "../pages/Profile/profile";
 
-const AuthPage = new Auth("div", {
+const AuthPageIn = new AuthIn("div", {
   attr: {
     class: "auth",
   },
-  AuthForm: AuthFormComponent,
+  AuthForm: AuthFormComponentIn,
+});
+
+const AuthPageUp = new AuthUp("div", {
+  attr: {
+    class: "auth",
+  },
+  AuthForm: AuthFormComponentUp,
 });
 
 export const ProfileComponent = new Profile("div", {
@@ -53,11 +62,20 @@ const ChatsPage = new Chats("div", {
   ProfileComponent,
 });
 
-export const AuthLayoutComponent = new AuthLayout("div", {
+export const AuthLayoutComponentIn = new AuthLayout("div", {
   attr: {
     class: "auth__container",
   },
-  AuthPage,
+  AuthPageIn,
+  isAuthIn: true
+});
+
+export const AuthLayoutComponentUp = new AuthLayout("div", {
+  attr: {
+    class: "auth__container",
+  },
+  AuthPageUp,
+  isAuthIn: false
 });
 
 export const DefaultLayoutComponent = new DefaultLayout("div", {

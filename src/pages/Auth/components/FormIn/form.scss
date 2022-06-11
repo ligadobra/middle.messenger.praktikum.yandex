@@ -1,0 +1,33 @@
+.signin {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  align-items: center;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    column-gap: 22px;
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  &__inputs .input__view {
+    min-width: 345px;
+  }
+
+  &-link {
+    font-size: 26px;
+    line-height: 31px;
+    color: #c4c4c4 !important;
+    cursor: pointer;
+  }
+
+  &-active-link {
+    color: #3c3c3c !important;
+  }
+}

@@ -48,7 +48,7 @@ export class Router {
     }
 
     this._currentRoute = route;
-    route.render(route);
+    route.render();
   }
 
   go(pathname: string) {

@@ -1,4 +1,4 @@
-import { TSignIn } from "../auth.types";
+import { TSignIn } from "../AuthIn/auth-in.types";
 
 export function getLoginFormData() {
   const formData: TSignIn = { login: "", password: "" };

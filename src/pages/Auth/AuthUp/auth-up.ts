@@ -1,17 +1,17 @@
-import tpl from "./auth.hbs";
+import tpl from "./auth-up.hbs";
 import {
   menuCheck,
   onSignInClick,
   onSignUpClick,
-} from "./components/Form/form";
-import Button from "../../components/button";
-import TextField from "../../components/text-field";
-import AuthForm from "./components/Form";
-import { signUp, signIn, isSignUpPage } from "./functions/auth";
-import "./auth.scss";
+} from "../components/FormUp/form";
+import Button from "../../../components/button";
+import TextField from "../../../components/text-field";
+import AuthFormUp from "../components/FormUp";
+import { signUp } from "../functions/auth";
+import "./auth-up.scss";
 
-const authButton = new Button("div", {
-  text: !isSignUpPage() ? "Войти" : "Создать аккаунт",
+const authButtonUp = new Button("div", {
+  text: "Создать аккаунт",
   attr: {
     class: "button",
   },
@@ -19,7 +19,7 @@ const authButton = new Button("div", {
     click: (e: MouseEvent) => {
       e.preventDefault();
       e.stopPropagation();
-      isSignUpPage() ? signUp() : signIn();
+      signUp();
     },
   },
 });
@@ -52,24 +52,6 @@ const signUpButton = new Button("div", {
       onSignUpClick();
     },
   },
-});
-
-const textfieldLogin = new TextField("div", {
-  attr: {
-    class: "input",
-  },
-  name: "login",
-  placeholder: "Ваш логин",
-  label: "Логин",
-});
-
-const passfieldLogin = new TextField("div", {
-  attr: {
-    class: "input",
-  },
-  name: "password",
-  placeholder: "Ваш пароль",
-  label: "Пароль",
 });
 
 const nameReg = new TextField("div", {
@@ -126,14 +108,11 @@ const passReg = new TextField("div", {
   label: "Пароль",
 });
 
-export const AuthFormComponent = new AuthForm("div", {
+export const AuthFormComponentUp = new AuthFormUp("div", {
   attr: {
-    class: !isSignUpPage() ? "signin" : "registration-form",
+    class: "registration-form",
   },
-  isSignUpPage: !isSignUpPage() ? false : true,
-  authButton,
-  textfieldLogin,
-  passfieldLogin,
+  authButtonUp,
   nameReg,
   secondNameReg,
   phoneReg,

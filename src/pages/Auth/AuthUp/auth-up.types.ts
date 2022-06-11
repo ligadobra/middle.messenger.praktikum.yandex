@@ -1,8 +1,3 @@
-export type TSignIn = {
-  login: string;
-  password: string;
-};
-
 export type TSignUp = {
   name: string;
   secondName: string;

@@ -1,14 +1,17 @@
 import { useRouter } from "./hooks/useRouter";
 import {
-  AuthLayoutComponent,
+  AuthLayoutComponentIn,
+  AuthLayoutComponentUp,
   DefaultLayoutComponent,
 } from "./layouts/create-layouts";
 
 const router = useRouter(".app");
 
 router
-  .use("/", AuthLayoutComponent)
-  .use("/sign-up", AuthLayoutComponent)
+  .use("/", AuthLayoutComponentIn)
+  .use("/sign-up", AuthLayoutComponentUp)
   .use("/messenger", DefaultLayoutComponent)
   .use("/settings", DefaultLayoutComponent)
   .start();
+
+  console.log(router.routes)

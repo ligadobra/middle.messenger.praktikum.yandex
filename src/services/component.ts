@@ -219,4 +219,12 @@ export class Component {
   hide() {
     this.getContent().style.display = "none";
   }
+
+  remove() {
+    this.getContent().remove();
+  }
+
+  create(block) {
+    this.getContent().remove();
+  }
 }

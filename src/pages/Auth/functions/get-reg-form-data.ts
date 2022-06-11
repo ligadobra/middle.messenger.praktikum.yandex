@@ -1,4 +1,4 @@
-import { TSignUp } from "../auth.types";
+import { TSignUp } from "../AuthUp/auth-up.types";
 
 export function getRegFormData() {
   const formData: TSignUp = {
