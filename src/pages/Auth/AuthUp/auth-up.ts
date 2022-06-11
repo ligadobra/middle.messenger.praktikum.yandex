@@ -1,14 +1,10 @@
 import tpl from "./auth-up.hbs";
-import {
-  menuCheck,
-  onSignInClick,
-  onSignUpClick,
-} from "../components/FormUp/form";
 import Button from "../../../components/button";
 import TextField from "../../../components/text-field";
 import AuthFormUp from "../components/FormUp";
 import { signUp } from "../functions/auth";
 import "./auth-up.scss";
+import { onSignInClick, onSignUpClick } from "../routes/routing";
 
 const authButtonUp = new Button("div", {
   text: "Создать аккаунт",
@@ -122,9 +118,5 @@ export const AuthFormComponentUp = new AuthFormUp("div", {
   signInButton,
   signUpButton,
 });
-
-setTimeout(() => {
-  menuCheck();
-}, 100);
 
 export default tpl;

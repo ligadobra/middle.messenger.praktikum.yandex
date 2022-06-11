@@ -36,16 +36,3 @@
     color: #3c3c3c !important;
   }
 }
-
-.signin {
-  display: flex;
-  flex-direction: column;
-  row-gap: 40px;
-  align-items: center;
-
-  &__header {
-    display: flex;
-    align-items: center;
-    column-gap: 22px;
-  }
-}

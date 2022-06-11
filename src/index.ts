@@ -4,14 +4,13 @@ import {
   AuthLayoutComponentUp,
   DefaultLayoutComponent,
 } from "./layouts/create-layouts";
+import routes from "./routes";
 
 const router = useRouter(".app");
 
 router
-  .use("/", AuthLayoutComponentIn)
-  .use("/sign-up", AuthLayoutComponentUp)
-  .use("/messenger", DefaultLayoutComponent)
-  .use("/settings", DefaultLayoutComponent)
+  .use(routes.home, AuthLayoutComponentIn)
+  .use(routes.signup, AuthLayoutComponentUp)
+  .use(routes.messenger, DefaultLayoutComponent)
+  .use(routes.settings, DefaultLayoutComponent)
   .start();
-
-  console.log(router.routes)

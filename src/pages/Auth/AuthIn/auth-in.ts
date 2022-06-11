@@ -1,14 +1,10 @@
 import tpl from "./auth-in.hbs";
-import {
-  menuCheck,
-  onSignInClick,
-  onSignUpClick,
-} from "../components/FormIn/form";
 import Button from "../../../components/button";
 import TextField from "../../../components/text-field";
 import AuthFormIn from "../components/FormIn";
 import { signIn } from "../functions/auth";
 import "./auth-in.scss";
+import { onSignInClick, onSignUpClick } from "../routes/routing";
 
 const authButtonIn = new Button("div", {
   text: "Войти",
@@ -82,9 +78,5 @@ export const AuthFormComponentIn = new AuthFormIn("div", {
   signInButton,
   signUpButton,
 });
-
-setTimeout(() => {
-  menuCheck();
-}, 100);
 
 export default tpl;

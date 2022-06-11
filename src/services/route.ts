@@ -23,7 +23,7 @@ export class Route {
 
   leave() {
     if (this._block) {
-      this._block.remove();
+      this._block.hide();
     }
   }
 
