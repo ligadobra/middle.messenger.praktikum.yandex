@@ -26,7 +26,13 @@ export function queryStringify(data: any) {
 }
 
 export class HTTPTransport {
-  static get(url, options = {}) {
+  private _url: string;
+
+  constructor(url: string){
+    this._url = url;
+  }
+
+  get(url: string, options = {}) {
     return this.request(
       url,
       {
@@ -38,7 +44,7 @@ export class HTTPTransport {
     );
   }
 
-  static put(url, options = {}) {
+  put(url: string, options = {}) {
     return this.request(
       url,
       { ...options, method: METHODS.PUT },
@@ -46,7 +52,7 @@ export class HTTPTransport {
     );
   }
 
-  static post(url, options = {}) {
+  post(url: string, options = {}) {
     return this.request(
       url,
       { ...options, method: METHODS.POST },
@@ -54,7 +60,7 @@ export class HTTPTransport {
     );
   }
 
-  static delete(url, options = {}) {
+  delete(url: string, options = {}) {
     return this.request(
       url,
       { ...options, method: METHODS.DELETE },
@@ -62,13 +68,13 @@ export class HTTPTransport {
     );
   }
 
-  static request(url, options, timeout = 5000) {
+  request(url: string, options, timeout = 5000) {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       if (options.method !== "GET") {
-        xhr.open(options.method, url);
+        xhr.open(options.method, this._url + url);
       } else {
-        xhr.open(options.method, url + options.data);
+        xhr.open(options.method, this._url + url + options.data);
       }
 
       xhr.onload = function () {

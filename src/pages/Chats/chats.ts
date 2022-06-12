@@ -2,7 +2,7 @@ import tpl from "./chats.hbs";
 import ChatContent from "./ChatContent";
 import ChatsSidebar from "./ChatsSidebar";
 import { ChatBodyComponent, ChatContentHeaderComponent, ChatFormComponent } from "./ChatContent/chat-content";
-import { ChatsListComponent, LinkComponent, SearchComponent } from "./ChatsSidebar/chats-sidebar";
+import { ButtonLogoutComponent, ChatsListComponent, LinkComponent, SearchComponent } from "./ChatsSidebar/chats-sidebar";
 import "./chats.scss";
 
 export const ChatsSidebarComponent = new ChatsSidebar("div", {
@@ -11,7 +11,8 @@ export const ChatsSidebarComponent = new ChatsSidebar("div", {
   },
   LinkComponent,
   SearchComponent,
-  ChatsListComponent
+  ChatsListComponent,
+  ButtonLogoutComponent
 });
 
 export const ChatContentComponent = new ChatContent("div", {

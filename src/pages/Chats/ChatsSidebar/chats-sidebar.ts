@@ -2,12 +2,11 @@ import tpl from "./chats-sidebar.hbs";
 import Link from "../../../components/link";
 import TextField from "../../../components/text-field";
 import ChatsList from "./components/ChatsList";
-import { currentPath } from "../../../constants/system";
 import { goToRoute } from "../../../functions/go-to-route";
-import "./chats-sidebar.scss";
 import routes from "../../../routes";
-
-const isProfilePage = currentPath === "/profile";
+import Button from "../../../components/button";
+import "./chats-sidebar.scss";
+import { LogoutApi } from "../../../api/auth";
 
 const chats = {
   chats: [
@@ -32,6 +31,11 @@ const chats = {
   ],
 };
 
+function logout() {
+  LogoutApi.create();
+  goToRoute(routes.home);
+}
+
 export const LinkComponent = new Link("div", {
   attr: {
     class: "link",
@@ -45,6 +49,20 @@ export const LinkComponent = new Link("div", {
   },
   isBack: false,
   text: "Профиль пользователя",
+});
+
+export const ButtonLogoutComponent = new Button("div", {
+  attr: {
+    class: "button_filled",
+  },
+  text: "Выйти",
+  events: {
+    click: (e: MouseEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      logout();
+    },
+  },
 });
 
 export const SearchComponent = new TextField("div", {

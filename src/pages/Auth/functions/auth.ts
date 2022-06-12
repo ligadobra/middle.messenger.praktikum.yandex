@@ -1,9 +1,9 @@
-import { currentPath } from "../../../constants/system";
+import { SignInApi, SignUpApi } from "../../../api/auth";
+import { goToRoute } from "../../../functions/go-to-route";
+import routes from "../../../routes";
 import { executeAllChecks } from "../../../utils/validate";
 import { getLoginFormData } from "./get-login-form-data";
 import { getRegFormData } from "./get-reg-form-data";
-
-export const isSignUpPage = () => currentPath === "/sign-up";
 
 export function signIn() {
   const formData = getLoginFormData();
@@ -11,12 +11,16 @@ export function signIn() {
     { name: "login", value: formData.login ?? "" },
     { name: "password", value: formData.password ?? "" },
   ];
-  console.log(
-    executeAllChecks(valuesForCheck)
-      ? "Data ready to send!"
-      : "Oh no! Maybe form has some errors",
-    formData
-  );
+
+  if (!executeAllChecks(valuesForCheck)) {
+    return;
+  }
+
+  SignInApi.create({
+    login: formData.login,
+    password: formData.password,
+  });
+  goToRoute(routes.messenger);
 }
 
 export function signUp() {
@@ -29,10 +33,18 @@ export function signUp() {
     { name: "phone", value: formData.phone ?? "" },
     { name: "email", value: formData.email ?? "" },
   ];
-  console.log(
-    executeAllChecks(valuesForCheck)
-      ? "Data ready to send!"
-      : "Oh no! Maybe form has some errors",
-    formData
-  );
+
+  if (!executeAllChecks(valuesForCheck)) {
+    return;
+  }
+
+  SignUpApi.create({
+    first_name: formData.name,
+    second_name: formData.secondName,
+    login: formData.login,
+    email: formData.email,
+    password: formData.password,
+    phone: formData.phone,
+  });
+  goToRoute(routes.messenger);
 }
