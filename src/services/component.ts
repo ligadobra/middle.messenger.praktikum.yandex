@@ -213,7 +213,7 @@ export class Component {
   }
 
   show() {
-    this.getContent().style.display = "block";
+    this.getContent().removeAttribute('style');
   }
 
   hide() {

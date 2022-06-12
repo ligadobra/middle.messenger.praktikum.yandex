@@ -2,8 +2,10 @@ import tpl from "./chats-sidebar.hbs";
 import Link from "../../../components/link";
 import TextField from "../../../components/text-field";
 import ChatsList from "./components/ChatsList";
-import "./chats-sidebar.scss";
 import { currentPath } from "../../../constants/system";
+import { goToRoute } from "../../../functions/go-to-route";
+import "./chats-sidebar.scss";
+import routes from "../../../routes";
 
 const isProfilePage = currentPath === "/profile";
 
@@ -34,9 +36,15 @@ export const LinkComponent = new Link("div", {
   attr: {
     class: "link",
   },
-  isBack: isProfilePage ? true : false,
-  url: isProfilePage ? "/chats" : "/profile",
-  text: isProfilePage ? "Назад к чату" : "Профиль пользователя",
+  events: {
+    click: (e: MouseEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      goToRoute(routes.settings);
+    },
+  },
+  isBack: false,
+  text: "Профиль пользователя",
 });
 
 export const SearchComponent = new TextField("div", {

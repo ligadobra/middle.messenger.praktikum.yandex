@@ -1,5 +1,8 @@
 import Button from "../../components/button";
+import Link from "../../components/link";
 import TextField from "../../components/text-field";
+import { goToRoute } from "../../functions/go-to-route";
+import routes from "../../routes";
 import { editProfile } from "./functions/edit-profile-form";
 import tpl from "./profile.hbs";
 import "./profile.scss";
@@ -88,6 +91,21 @@ export const buttonProfile = new Button("div", {
       editProfile();
     },
   },
+});
+
+export const LinkComponent = new Link("div", {
+  attr: {
+    class: "link",
+  },
+  events: {
+    click: (e: MouseEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      goToRoute(routes.messenger);
+    },
+  },
+  isBack: true,
+  text: "Назад к чату",
 });
 
 export default tpl;

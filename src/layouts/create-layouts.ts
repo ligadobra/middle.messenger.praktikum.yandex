@@ -21,6 +21,7 @@ import {
   oldPassProfile,
   newPassProfile,
   buttonProfile,
+  LinkComponent,
 } from "../pages/Profile/profile";
 
 const AuthPageIn = new AuthIn("div", {
@@ -50,6 +51,7 @@ export const ProfileComponent = new Profile("div", {
   oldPassProfile,
   newPassProfile,
   buttonProfile,
+  LinkComponent,
 });
 
 const ChatsPage = new Chats("div", {
@@ -59,7 +61,6 @@ const ChatsPage = new Chats("div", {
   isChat: currentPath === "/profile" ? false : true,
   ChatsSidebarComponent,
   ChatContentComponent,
-  ProfileComponent,
 });
 
 export const AuthLayoutComponentIn = new AuthLayout("div", {

@@ -3,6 +3,7 @@ import {
   AuthLayoutComponentIn,
   AuthLayoutComponentUp,
   DefaultLayoutComponent,
+  ProfileComponent,
 } from "./layouts/create-layouts";
 import routes from "./routes";
 
@@ -12,5 +13,5 @@ router
   .use(routes.home, AuthLayoutComponentIn)
   .use(routes.signup, AuthLayoutComponentUp)
   .use(routes.messenger, DefaultLayoutComponent)
-  .use(routes.settings, DefaultLayoutComponent)
+  .use(routes.settings, ProfileComponent)
   .start();
