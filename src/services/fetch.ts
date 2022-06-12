@@ -2,7 +2,7 @@ export const METHODS = {
   GET: "GET",
   PUT: "PUT",
   POST: "POST",
-  DELETE: "DELETE"
+  DELETE: "DELETE",
 };
 
 export function queryStringify(data: any) {
@@ -28,7 +28,7 @@ export function queryStringify(data: any) {
 export class HTTPTransport {
   private _url: string;
 
-  constructor(url: string){
+  constructor(url: string) {
     this._url = url;
   }
 
@@ -38,7 +38,7 @@ export class HTTPTransport {
       {
         ...options,
         data: queryStringify((options as any).data),
-        method: METHODS.GET
+        method: METHODS.GET,
       },
       (options as any).timeout
     );
@@ -83,7 +83,7 @@ export class HTTPTransport {
         } else {
           reject({
             status: xhr.status,
-            statusText: xhr.statusText
+            statusText: xhr.statusText,
           });
         }
       };
@@ -91,7 +91,7 @@ export class HTTPTransport {
       xhr.onerror = () => {
         reject({
           status: xhr.status,
-          statusText: xhr.statusText
+          statusText: xhr.statusText,
         });
       };
 

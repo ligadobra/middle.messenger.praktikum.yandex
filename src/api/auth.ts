@@ -1,28 +1,15 @@
-import { HTTPTransport } from "../services/fetch";
+import { AppJsonHeader } from "../constants/api-headers";
+import { signUpAPIInstance } from "../constants/api-instances";
+import { TSignUpProps, TSignInProps } from "../types/request-data/auth";
 import { BaseAPI } from "./base-api";
-
-const signUpAPIInstance = new HTTPTransport(
-  "https://ya-praktikum.tech/api/v2/auth"
-);
-
-export type TSignUpProps = {
-  first_name: string;
-  second_name: string;
-  login: string;
-  email: string;
-  password: string;
-  phone: string;
-};
-
-export type TSignInProps = {
-  login: string;
-  password: string;
-};
 
 export class SignUpApi extends BaseAPI {
   static async create(signUpProps: TSignUpProps) {
     return signUpAPIInstance
-      .post("/signup", { data: signUpProps })
+      .post("/signup", {
+        data: signUpProps,
+        headers: AppJsonHeader,
+      })
       .then((data) => data)
       .catch((e) => console.log("error"));
   }
@@ -31,7 +18,10 @@ export class SignUpApi extends BaseAPI {
 export class SignInApi extends BaseAPI {
   static async create(signInProps: TSignInProps) {
     return signUpAPIInstance
-      .post("/signin", { data: signInProps })
+      .post("/signin", {
+        data: signInProps,
+        headers: AppJsonHeader,
+      })
       .then((data) => data)
       .catch((e) => console.log("error"));
   }
@@ -40,7 +30,7 @@ export class SignInApi extends BaseAPI {
 export class LogoutApi extends BaseAPI {
   static async create() {
     return signUpAPIInstance
-      .post("/logout")
+      .post("/logout", { headers: AppJsonHeader })
       .then((data) => data)
       .catch((e) => console.log("error"));
   }
