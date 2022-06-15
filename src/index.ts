@@ -1,3 +1,5 @@
+import { currentPath } from "./constants/system";
+import { ChartsController } from "./controllers/chats-controller";
 import { UserController } from "./controllers/user-controller";
 import { goToRoute } from "./functions/go-to-route";
 import { useRouter } from "./hooks/useRouter";
@@ -22,3 +24,14 @@ router
 UserController.getUser().catch(() => {
   goToRoute(routes.home);
 });
+
+if (currentPath === routes.messenger) {
+  ChartsController.getChats().then(() => {
+    const items = document.getElementsByClassName("chat-list-item");
+    for (let i = 0; i < items.length; ++i) {
+      items[i].addEventListener("click", () => {
+        store.set("currentChat", store.getState()?.chats[i]);
+      });
+    }
+  });
+}

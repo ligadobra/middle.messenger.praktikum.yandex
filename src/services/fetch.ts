@@ -105,9 +105,11 @@ export class HTTPTransport {
       xhr.withCredentials = true;
 
       if (options.method !== "GET") {
-        xhr.send(
-          options.isFile ? options.data : JSON.stringify(options.data)
-        );
+        if (options.isFile) {
+          xhr.send(options.data);
+        } else {
+          xhr.send(JSON.stringify(options.data));
+        }
       } else {
         xhr.send();
       }

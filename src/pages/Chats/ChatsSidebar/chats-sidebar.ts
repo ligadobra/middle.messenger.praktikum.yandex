@@ -5,31 +5,9 @@ import ChatsList from "./components/ChatsList";
 import { goToRoute } from "../../../functions/go-to-route";
 import routes from "../../../routes";
 import Button from "../../../components/button";
+import { LogoutApi } from "../../../api/auth";
+import { createChat } from "../functions/create-chat";
 import "./chats-sidebar.scss";
-import { GetUserApi, LogoutApi } from "../../../api/auth";
-
-const chats = {
-  chats: [
-    {
-      name: "Игорь Пупкин",
-      message: "qwertyqwertyqwertyqwertyqwerty",
-      time: "18:02",
-      unread: "3",
-    },
-    {
-      name: "Игорь Пупкин",
-      message: "qwertyqwertyqwertyqwertyqwerty",
-      time: "18:02",
-      unread: "3",
-    },
-    {
-      name: "Игорь Пупкин",
-      message: "qwertyqwertyqwertyqwertyqwerty",
-      time: "18:02",
-      unread: "3",
-    },
-  ],
-};
 
 function logout() {
   LogoutApi.create();
@@ -73,11 +51,32 @@ export const SearchComponent = new TextField("div", {
   placeholder: "Поиск",
 });
 
+export const CreateChatTitle = new TextField("div", {
+  attr: {
+    class: "chats-sidebar__input",
+  },
+  name: "chat-title",
+  placeholder: "Название чата",
+});
+
+export const CreateChatButton = new Button("div", {
+  attr: {
+    class: "button_filled",
+  },
+  text: "Создать",
+  events: {
+    click: (e: MouseEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      createChat();
+    },
+  },
+});
+
 export const ChatsListComponent = new ChatsList("div", {
   attr: {
     class: "chats-list",
   },
-  chats: chats.chats,
 });
 
 export default tpl;

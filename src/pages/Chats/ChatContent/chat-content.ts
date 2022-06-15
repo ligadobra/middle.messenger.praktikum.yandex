@@ -10,6 +10,7 @@ import {
   ChatTextField,
 } from "./components/Form/chat-send-form";
 import ChatBody from "./components/Body";
+import { handleChatAvatar } from "./components/Header/Avatar/functions/handle-avatar";
 
 const chat: IChat = {
   chatInfo: {
@@ -57,8 +58,16 @@ export const ChatContentAvatarComponent = new ChatContentAvatar("div", {
   attr: {
     class: "chat-content-header-avatar",
   },
-  name: chat.chatInfo.recipient.name,
-  avatar: "",
+  events: {
+    click: (e: MouseEvent) => {
+      e.stopPropagation();
+
+      var classes = document.getElementsByClassName("chat-content-header-avatar__input");
+      var Rate = classes[0];
+      (Rate as any).click();
+      (Rate as any).addEventListener("change", handleChatAvatar, false);
+    },
+  },
 });
 
 export const ChatContentHeaderComponent = new ChatContentHeader("div", {

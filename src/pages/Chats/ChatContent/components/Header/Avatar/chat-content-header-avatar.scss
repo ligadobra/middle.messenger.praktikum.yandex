@@ -8,6 +8,7 @@
     height: 65px;
     border-radius: 100%;
     background-color: #f4f4f4;
+    object-fit: cover;
     cursor: pointer;
   }
 
@@ -16,5 +17,9 @@
     font-size: 16px;
     line-height: 22px;
     cursor: pointer;
+  }
+
+  &__input {
+    display: none;
   }
 }

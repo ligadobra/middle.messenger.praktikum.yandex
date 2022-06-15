@@ -1,18 +1,17 @@
 {{#each chats}}
   <div class="chat-list-item">
-    {{#if src}}
-      <img src={{src}} class="avatar" alt="avatar" />
+    {{#if avatar}}
+      <img src={{avatar}} class="avatar" alt="avatar" />
     {{/if}}
-    {{#unless src}}
+    {{#unless avatar}}
       <div class="avatar"></div>
     {{/unless}}
     <div class="chat-list-item__data">
-      <div class="chat-list-item__recipient">{{name}}</div>
-      <div class="chat-list-item__text">{{text}}</div>
+      <div class="chat-list-item__recipient">{{title}}</div>
+      <div class="chat-list-item__text">{{last_message}}</div>
     </div>
     <div class="chat-list-item__info">
-      <div class="chat-list-item__time">{{time}}</div>
-      <div class="chat-list-item__unread">{{unread}}</div>
+      <div class="chat-list-item__unread">{{unread_count}}</div>
     </div>
   </div>
 {{/each}}
