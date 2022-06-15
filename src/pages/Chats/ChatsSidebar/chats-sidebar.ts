@@ -6,7 +6,7 @@ import { goToRoute } from "../../../functions/go-to-route";
 import routes from "../../../routes";
 import Button from "../../../components/button";
 import "./chats-sidebar.scss";
-import { LogoutApi } from "../../../api/auth";
+import { GetUserApi, LogoutApi } from "../../../api/auth";
 
 const chats = {
   chats: [

@@ -1,10 +1,14 @@
 import Button from "../../components/button";
 import Link from "../../components/link";
 import TextField from "../../components/text-field";
+import AvatarSettings from "./components/index";
 import { goToRoute } from "../../functions/go-to-route";
 import routes from "../../routes";
+import store from "../../services/store";
+import { editPassword } from "./functions/edit-password-form";
 import { editProfile } from "./functions/edit-profile-form";
 import tpl from "./profile.hbs";
+import { handleAvatar } from "./functions/get-profile-form-data";
 import "./profile.scss";
 
 export const nameProfile = new TextField("div", {
@@ -14,6 +18,7 @@ export const nameProfile = new TextField("div", {
   name: "first_name",
   placeholder: "Ваше имя",
   label: "Имя",
+  value: store.getState()?.user?.first_name,
 });
 
 export const secondNameProfile = new TextField("div", {
@@ -93,6 +98,20 @@ export const buttonProfile = new Button("div", {
   },
 });
 
+export const passwordButton = new Button("div", {
+  attr: {
+    class: "button_filled",
+  },
+  text: "Изменить пароль",
+  events: {
+    click: (e: MouseEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      editPassword();
+    },
+  },
+});
+
 export const LinkComponent = new Link("div", {
   attr: {
     class: "link",
@@ -108,4 +127,16 @@ export const LinkComponent = new Link("div", {
   text: "Назад к чату",
 });
 
+export const AvatarComponent = new AvatarSettings("div", {
+  events: {
+    click: (e: MouseEvent) => {
+      e.stopPropagation();
+
+      var classes = document.getElementsByClassName("input_avatar");
+      var Rate = classes[0];
+      (Rate as any).click();
+      (Rate as any).addEventListener("change", handleAvatar, false);
+    },
+  },
+});
 export default tpl;

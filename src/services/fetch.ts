@@ -102,9 +102,12 @@ export class HTTPTransport {
       }
 
       xhr.timeout = timeout;
+      xhr.withCredentials = true;
 
       if (options.method !== "GET") {
-        xhr.send(JSON.stringify(options.data));
+        xhr.send(
+          options.isFile ? options.data : JSON.stringify(options.data)
+        );
       } else {
         xhr.send();
       }

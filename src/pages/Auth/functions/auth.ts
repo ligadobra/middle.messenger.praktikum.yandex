@@ -1,6 +1,7 @@
-import { SignInApi, SignUpApi } from "../../../api/auth";
+import { GetUserApi, SignInApi, SignUpApi } from "../../../api/auth";
 import { goToRoute } from "../../../functions/go-to-route";
 import routes from "../../../routes";
+import store from "../../../services/store";
 import { executeAllChecks } from "../../../utils/validate";
 import { getLoginFormData } from "./get-login-form-data";
 import { getRegFormData } from "./get-reg-form-data";
@@ -19,8 +20,12 @@ export function signIn() {
   SignInApi.create({
     login: formData.login,
     password: formData.password,
-  });
-  goToRoute(routes.messenger);
+  }).then(() =>
+    GetUserApi.create().then((data: any) => {
+      store.set("user", JSON.parse(data.user.response));
+      goToRoute(routes.messenger);
+    })
+  );
 }
 
 export function signUp() {
@@ -45,6 +50,10 @@ export function signUp() {
     email: formData.email,
     password: formData.password,
     phone: formData.phone,
-  });
-  goToRoute(routes.messenger);
+  }).then(() =>
+    GetUserApi.create().then((data: any) => {
+      store.set("user", JSON.parse(data.user.response));
+      goToRoute(routes.messenger);
+    })
+  );
 }

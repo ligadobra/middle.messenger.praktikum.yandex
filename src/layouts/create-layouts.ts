@@ -22,6 +22,8 @@ import {
   newPassProfile,
   buttonProfile,
   LinkComponent,
+  passwordButton,
+  AvatarComponent,
 } from "../pages/Profile/profile";
 
 const AuthPageIn = new AuthIn("div", {
@@ -51,7 +53,9 @@ export const ProfileComponent = new Profile("div", {
   oldPassProfile,
   newPassProfile,
   buttonProfile,
+  passwordButton,
   LinkComponent,
+  AvatarComponent,
 });
 
 const ChatsPage = new Chats("div", {
@@ -68,7 +72,7 @@ export const AuthLayoutComponentIn = new AuthLayout("div", {
     class: "auth__container",
   },
   AuthPageIn,
-  isAuthIn: true
+  isAuthIn: true,
 });
 
 export const AuthLayoutComponentUp = new AuthLayout("div", {
@@ -76,7 +80,7 @@ export const AuthLayoutComponentUp = new AuthLayout("div", {
     class: "auth__container",
   },
   AuthPageUp,
-  isAuthIn: false
+  isAuthIn: false,
 });
 
 export const DefaultLayoutComponent = new DefaultLayout("div", {

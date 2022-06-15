@@ -16,6 +16,10 @@ class Store extends EventBus {
   public set(path: string, value: unknown) {
     set(this.state, path, value);
 
+    if(!this.listeners[StoreEvents.Updated]) {
+      return;
+    }
+    
     this.emit(StoreEvents.Updated);
   }
 }

@@ -1,5 +1,5 @@
 export class EventBus {
-  private listeners: object;
+  protected listeners: object;
 
   constructor() {
     this.listeners = {};

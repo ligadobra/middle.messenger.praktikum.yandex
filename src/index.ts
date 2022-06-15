@@ -1,3 +1,5 @@
+import { UserController } from "./controllers/user-controller";
+import { goToRoute } from "./functions/go-to-route";
 import { useRouter } from "./hooks/useRouter";
 import {
   AuthLayoutComponentIn,
@@ -6,6 +8,7 @@ import {
   ProfileComponent,
 } from "./layouts/create-layouts";
 import routes from "./routes";
+import store from "./services/store";
 
 const router = useRouter(".app");
 
@@ -15,3 +18,7 @@ router
   .use(routes.messenger, DefaultLayoutComponent)
   .use(routes.settings, ProfileComponent)
   .start();
+
+UserController.getUser().catch(() => {
+  goToRoute(routes.home);
+});
