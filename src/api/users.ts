@@ -1,6 +1,6 @@
-import { DefaultHeader, FileHeader } from "../constants/api-headers";
+import { DefaultHeader } from "../constants/api-headers";
 import { UsersAPIInstance } from "../constants/api-instances";
-import { TAvatar, TUserEdit, TUserPassword } from "../types/request-data/user";
+import { TUserEdit, TUserPassword } from "../types/request-data/user";
 import { BaseAPI } from "./base-api";
 
 export class EditUserApi extends BaseAPI {

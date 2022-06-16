@@ -2,7 +2,7 @@
   margin-bottom: 60px;
 
   &__container {
-    flex-direction: column;
+    flex-direction: column-reverse;
     row-gap: 20px;
     display: flex;
     height: calc(100vh - 200px);
@@ -72,7 +72,7 @@
     align-items: flex-end;
   }
 
-  &:last-child {
+  &:first-child {
     margin-bottom: 40px;
   }
 }

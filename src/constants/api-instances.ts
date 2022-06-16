@@ -11,3 +11,5 @@ export const UsersAPIInstance = new HTTPTransport(
 export const ChatsAPIInstance = new HTTPTransport(
   "https://ya-praktikum.tech/api/v2/chats"
 );
+
+export const WSChats = "wss://ya-praktikum.tech/ws/chats";

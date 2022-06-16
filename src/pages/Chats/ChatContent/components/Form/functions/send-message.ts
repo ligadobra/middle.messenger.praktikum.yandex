@@ -1,13 +1,22 @@
+import { getMessages } from "../../../../../../hooks/useWebSockets";
+import store from "../../../../../../services/store";
+import { WSModel } from "../../../../../../services/websockets";
 import { executeAllChecks } from "../../../../../../utils/validate";
 import { getMessageFormData } from "./get-send-message-data";
 
 export function SendMessage() {
   const formData = getMessageFormData();
   const valuesForCheck = [{ name: "message", value: formData.message ?? "" }];
-  console.log(
-    executeAllChecks(valuesForCheck)
-      ? "Data ready to send!"
-      : "Oh no! Maybe form has some errors",
-    formData
-  );
+  if (executeAllChecks(valuesForCheck)) {
+    WSModel.instance.send(
+      JSON.stringify({
+        content: formData.message,
+        type: "message",
+      })
+    );
+
+    getMessages(WSModel.instance, (event) => {
+      store.set("messages", JSON.parse(event.data));
+    });
+  }
 }

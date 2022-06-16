@@ -1,14 +1,18 @@
 {{#each chats}}
   <div class="chat-list-item">
     {{#if avatar}}
-      <img src="https://ya-praktikum.tech/api/v2/resources{{avatar}}" class="avatar" alt="avatar" />
+      <img
+        src="https://ya-praktikum.tech/api/v2/resources{{avatar}}"
+        class="avatar"
+        alt="avatar"
+      />
     {{/if}}
     {{#unless avatar}}
       <div class="avatar"></div>
     {{/unless}}
     <div class="chat-list-item__data">
       <div class="chat-list-item__recipient">{{title}}</div>
-      <div class="chat-list-item__text">{{last_message}}</div>
+      <div class="chat-list-item__text">{{last_message.content}}</div>
     </div>
     <div class="chat-list-item__info">
       <div class="chat-list-item__unread">{{unread_count}}</div>
