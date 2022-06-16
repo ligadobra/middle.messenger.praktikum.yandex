@@ -1,4 +1,5 @@
 .chat-content-header {
+  position: relative;
   flex-direction: column;
   row-gap: 25px;
   padding: 0 25px;
@@ -16,4 +17,12 @@
     cursor: pointer;
     transform: rotate(90deg);
   }
+}
+
+.dropdown-shown {
+  display: flex !important;
+}
+
+.modal-shown {
+  display: flex !important;
 }

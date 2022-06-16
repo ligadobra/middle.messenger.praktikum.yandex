@@ -56,9 +56,14 @@
   background-color: #d7fff2;
 }
 
+.chat-list-item__active {
+  background-color: #d7fff2;
+}
+
 .avatar {
   min-width: 53px;
   min-height: 53px;
+  width: 53px;
   object-fit: cover;
   border-radius: 100%;
   background-color: #e9e9e9;

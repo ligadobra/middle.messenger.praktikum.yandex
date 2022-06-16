@@ -27,6 +27,7 @@ UserController.getUser().catch(() => {
 
 if (currentPath === routes.messenger) {
   ChartsController.getChats().then(() => {
+    store.set("currentChat", store.getState()?.chats[0]);
     const items = document.getElementsByClassName("chat-list-item");
     for (let i = 0; i < items.length; ++i) {
       items[i].addEventListener("click", () => {

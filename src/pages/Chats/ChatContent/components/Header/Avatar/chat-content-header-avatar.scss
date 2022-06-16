@@ -3,13 +3,35 @@
   align-items: center;
   column-gap: 25px;
 
+  & img {
+    width: 65px;
+    height: 65px;
+    border-radius: 100%;
+    background-color: #f4f4f4;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
   &__pic {
     width: 65px;
     height: 65px;
     border-radius: 100%;
     background-color: #f4f4f4;
     object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
+
+    & img {
+      object-fit: cover;
+      width: 40px;
+      height: 40px;
+    }
   }
 
   &__label {

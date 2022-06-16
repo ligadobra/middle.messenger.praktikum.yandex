@@ -2,6 +2,7 @@ import tpl from "./chats.hbs";
 import ChatContent from "./ChatContent";
 import ChatsSidebar from "./ChatsSidebar";
 import {
+  AddUsersToChatModal,
   ChatBodyComponent,
   ChatContentHeaderComponent,
   ChatFormComponent,
@@ -35,6 +36,7 @@ export const ChatContentComponent = new ChatContent("div", {
   ChatContentHeaderComponent,
   ChatFormComponent,
   ChatBodyComponent,
+  AddUsersToChatModal
 });
 
 export default tpl;

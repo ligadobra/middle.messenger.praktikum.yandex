@@ -1,0 +1,13 @@
+.add-users-to-chat {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  padding: 25px;
+  justify-content: center;
+  align-items: center;
+
+  &__input {
+    width: 100%;
+    max-width: 250px;
+  }
+}

@@ -22,6 +22,26 @@ export class CreateChatsApi extends BaseAPI {
   }
 }
 
+export class DeleteChatsApi extends BaseAPI {
+  static create(chatId: number) {
+    return ChatsAPIInstance.delete("", {
+      data: { chatId },
+      headers: DefaultHeader,
+    }).catch((e) => console.log("error"));
+  }
+}
+
+export class AddUsersToChatApi extends BaseAPI {
+  static create(props: { users: string[]; chatId: number }) {
+    return ChatsAPIInstance.put("/users", {
+      data: props,
+      headers: DefaultHeader,
+    })
+      .then((info) => {})
+      .catch((e) => console.log("error"));
+  }
+}
+
 export class ChangeChatAvatarApi extends BaseAPI {
   static create(avatar: any) {
     return ChatsAPIInstance.put("/avatar", {
