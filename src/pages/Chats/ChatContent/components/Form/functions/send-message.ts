@@ -1,5 +1,3 @@
-import { getMessages } from "../../../../../../hooks/useWebSockets";
-import store from "../../../../../../services/store";
 import { WSModel } from "../../../../../../services/websockets";
 import { executeAllChecks } from "../../../../../../utils/validate";
 import { getMessageFormData } from "./get-send-message-data";
@@ -14,9 +12,5 @@ export function SendMessage() {
         type: "message",
       })
     );
-
-    getMessages(WSModel.instance, (event) => {
-      store.set("messages", JSON.parse(event.data));
-    });
   }
 }

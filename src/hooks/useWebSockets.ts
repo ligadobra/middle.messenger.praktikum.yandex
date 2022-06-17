@@ -1,3 +1,4 @@
+import { checkNewMessage } from "../functions/check-messages";
 import store from "../services/store";
 import { WSModel } from "../services/websockets";
 
@@ -26,18 +27,14 @@ export function useWebSockets(id: number, chatId: number, token: string) {
 
   instance.addEventListener("message", (event: any) => {
     console.log("Получены новые дланные", event.data);
-    if (Array.isArray(JSON.parse(event.data))) {
-      console.log("tuta");
+    if (!store.getState().messages?.length) {
       store.set("messages", JSON.parse(event.data));
+    } else {
+      if (checkNewMessage(JSON.parse(event.data))) {
+        store.unshift("messages", JSON.parse(event.data));
+      }
     }
   });
 
   return { instance };
-}
-
-export function getMessages(
-  instance: WebSocket,
-  callback: (event: any) => void
-) {
-  instance.addEventListener("message", callback);
 }

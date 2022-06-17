@@ -5,7 +5,7 @@ import { ChartsController } from "./controllers/chats-controller";
 import { UserController } from "./controllers/user-controller";
 import { goToRoute } from "./functions/go-to-route";
 import { useRouter } from "./hooks/useRouter";
-import { getMessages, useWebSockets } from "./hooks/useWebSockets";
+import { useWebSockets } from "./hooks/useWebSockets";
 import {
   AuthLayoutComponentIn,
   AuthLayoutComponentUp,
@@ -14,6 +14,7 @@ import {
 } from "./layouts/create-layouts";
 import routes from "./routes";
 import store from "./services/store";
+import { WSModel } from "./services/websockets";
 
 Handlebars.registerHelper(
   "when",
@@ -68,17 +69,19 @@ if (currentPath === routes.messenger) {
     store.set("currentChat", store.getState()?.chats[0]);
     GetChatTokenApi.create(store.getState()?.chats[0].id).then((data: any) => {
       store.set("currentChat.token", JSON.parse(data.response).token);
-      const WSIInstance = useWebSockets(
+      useWebSockets(
         store.getState()?.user.id,
         store.getState()?.chats[0].id,
         store.getState()?.currentChat.token
       );
     });
-    const items = document.getElementsByClassName("chat-list-item");
-    for (let i = 0; i < items.length; ++i) {
-      items[i].addEventListener("click", () => {
-        store.set("currentChat", store.getState()?.chats[i]);
-      });
-    }
+
+    setInterval(() => {
+      WSModel.instance.send(
+        JSON.stringify({
+          type: "ping",
+        })
+      );
+    }, 20000);
   });
 }
