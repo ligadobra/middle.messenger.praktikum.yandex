@@ -6,8 +6,6 @@ export function useWebSockets(id: number, chatId: number, token: string) {
   const instance = WSModel.init(id, chatId, token);
 
   instance.addEventListener("open", () => {
-    console.log("Соединение установлено");
-
     instance.send(JSON.stringify({ content: "0", type: "get old" }));
   });
 
@@ -26,7 +24,6 @@ export function useWebSockets(id: number, chatId: number, token: string) {
   });
 
   instance.addEventListener("message", (event: any) => {
-    console.log("Получены новые дланные", event.data);
     if (!store.getState().messages?.length) {
       store.set("messages", JSON.parse(event.data));
     } else {

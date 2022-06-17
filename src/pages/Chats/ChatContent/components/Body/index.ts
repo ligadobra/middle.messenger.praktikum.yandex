@@ -5,7 +5,6 @@ import tpl from "./chat-content-messages";
 
 class ChatBody extends Component {
   render(): object {
-    console.log(store.getState().messages);
     return this.compile(tpl);
   }
 }
