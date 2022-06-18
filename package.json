@@ -39,6 +39,7 @@
     "chai-http": "^4.3.0",
     "d": "^1.0.1",
     "express": "^4.17.3",
+    "express-rate-limit": "^6.4.0",
     "sinon": "^14.0.0",
     "uuid": "^8.3.2"
   }
