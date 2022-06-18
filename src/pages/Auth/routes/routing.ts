@@ -1,5 +1,5 @@
 import routes from "../../../routes";
-import { Router } from "../../../services/router";
+import { Router } from "../../../services/router/router";
 
 const route = new Router(".app");
 

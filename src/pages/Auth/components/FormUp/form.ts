@@ -1,4 +1,4 @@
-import { Router } from "../../../../services/router";
+import { Router } from "../../../../services/router/router";
 import tpl from "./form.hbs";
 import "./form.scss";
 

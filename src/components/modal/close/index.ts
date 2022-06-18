@@ -1,4 +1,4 @@
-import { Component } from "../../../services/component";
+import { Component } from "../../../services/component/component";
 import tpl from "./close";
 
 export default class Close extends Component {

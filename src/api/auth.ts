@@ -1,5 +1,5 @@
 import { DefaultHeader } from "../constants/api-headers";
-import { AuthAPIInstance } from "../constants/api-instances";
+import { AuthAPIInstance, TestAPIInstance } from "../constants/api-instances";
 import { TSignUpProps, TSignInProps } from "../types/request-data/auth";
 import { BaseAPI } from "./base-api";
 

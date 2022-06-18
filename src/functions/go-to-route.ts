@@ -1,4 +1,4 @@
-import { Router } from "../services/router";
+import { Router } from "../services/router/router";
 
 export function goToRoute(url) {
   const route = new Router(".app");

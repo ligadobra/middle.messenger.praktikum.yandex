@@ -1,4 +1,4 @@
-import { Component } from "../../services/component";
+import { Component } from "../../services/component/component";
 import { TUser } from "../../types/request-data/auth";
 import tpl from "./default.layout";
 

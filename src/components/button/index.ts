@@ -1,4 +1,4 @@
-import { Component } from "../../services/component";
+import { Component } from "../../services/component/component";
 import tpl from "./button";
 
 export default class Button extends Component {

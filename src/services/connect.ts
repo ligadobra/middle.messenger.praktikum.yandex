@@ -1,5 +1,5 @@
 import { Indexed } from "../types/indexed";
-import { Component } from "./component";
+import { Component } from "./component/component";
 import store, { StoreEvents } from "./store";
 
 export function connect(

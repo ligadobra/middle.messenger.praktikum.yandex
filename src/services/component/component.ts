@@ -1,6 +1,5 @@
-import Handlebars from "handlebars";
 import { v4 as makeUUID } from "uuid";
-import { EventBus } from "./event-bus";
+import { EventBus } from "../event-bus";
 
 export class Component {
   static EVENTS = {
@@ -35,7 +34,7 @@ export class Component {
     this._eventBus.emit(Component.EVENTS.INIT);
   }
 
-  registerEvents() {
+  private registerEvents() {
     this._eventBus.on(Component.EVENTS.INIT, this.init.bind(this));
     this._eventBus.on(
       Component.EVENTS.FLOW_CDM,
@@ -48,14 +47,13 @@ export class Component {
     this._eventBus.on(Component.EVENTS.FLOW_RENDER, this._render.bind(this));
   }
 
-  init() {
+  protected init() {
     this._element = this.createDocumentElement(this._meta?.tag);
     this._eventBus.emit(Component.EVENTS.FLOW_RENDER);
   }
 
-  createDocumentElement(tag: string) {
+  private createDocumentElement(tag: string) {
     const element = document.createElement(tag);
-
     if (this._props.settings?.WithIntervalID) {
       element.setAttribute("data-id", this._id);
     }
@@ -63,7 +61,7 @@ export class Component {
     return element;
   }
 
-  _render() {
+  private _render() {
     const block = this.render();
     this.removeEvents();
     this._element.innerHTML = "";
@@ -72,9 +70,9 @@ export class Component {
     this.addAttributes();
   }
 
-  render() {}
+  public render() {}
 
-  addEvents(e?: string | string[], callback?: () => void) {
+  protected addEvents(e?: string | string[], callback?: () => void) {
     const { events = {} } = this._props;
 
     if (e?.length && typeof callback === "function") {
@@ -88,7 +86,7 @@ export class Component {
     });
   }
 
-  removeEvents() {
+  protected removeEvents() {
     const { events = {} } = this._props;
 
     Object.keys(events).forEach((eventName) => {
@@ -96,7 +94,7 @@ export class Component {
     });
   }
 
-  addAttributes() {
+  protected addAttributes() {
     const { attr = {} } = this._props;
 
     Object.entries(attr).forEach(([key, value]) => {
@@ -104,7 +102,7 @@ export class Component {
     });
   }
 
-  getChildren(propsAndChilds) {
+  protected getChildren(propsAndChilds) {
     const children = {};
     const props = {};
 
@@ -119,7 +117,7 @@ export class Component {
     return { children, props };
   }
 
-  compile(template: any, props?: object) {
+  public compile(template: any, props?: object) {
     if (typeof props === "undefined") {
       props = this._props;
     }
@@ -145,34 +143,34 @@ export class Component {
     return (fragment as any).content;
   }
 
-  _componentDidMount() {
+  private _componentDidMount() {
     this.componentDidMount();
     Object.values(this._children).forEach((child) => {
       (child as any).dispatchComponentDidMount();
     });
   }
 
-  componentDidMount() {}
+  public componentDidMount() {}
 
-  dispatchComponentDidMount() {
+  public dispatchComponentDidMount() {
     this._eventBus.emit(Component.EVENTS.FLOW_CDM);
     if (Object.keys(this._children).length) {
       this._eventBus.emit(Component.EVENTS.FLOW_RENDER);
     }
   }
 
-  _componentDidUpdate(oldProps, newProps) {
+  private _componentDidUpdate(oldProps, newProps) {
     const isReRender = this.componentDidUpdate(oldProps, newProps);
     if (isReRender) {
       this._eventBus.emit(Component.EVENTS.FLOW_RENDER);
     }
   }
 
-  componentDidUpdate(oldProps, newProps) {
+  public componentDidUpdate(oldProps, newProps) {
     return true;
   }
 
-  setProps = (newProps) => {
+  public setProps = (newProps) => {
     if (!newProps) {
       return;
     }
@@ -188,7 +186,7 @@ export class Component {
     }
   };
 
-  makePropsProxy(props) {
+  private makePropsProxy(props) {
     return new Proxy(props, {
       get(target, prop) {
         const value = target[prop];
@@ -208,23 +206,15 @@ export class Component {
     });
   }
 
-  getContent() {
+  public getContent() {
     return this._element;
   }
 
-  show() {
-    this.getContent().removeAttribute('style');
+  public show() {
+    this.getContent().removeAttribute("style");
   }
 
-  hide() {
+  public hide() {
     this.getContent().style.display = "none";
-  }
-
-  remove() {
-    this.getContent().remove();
-  }
-
-  create(block) {
-    this.getContent().remove();
   }
 }

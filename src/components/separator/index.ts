@@ -1,4 +1,4 @@
-import { Component } from "../../services/component";
+import { Component } from "../../services/component/component";
 import tpl from "./separator";
 
 export default class Separator extends Component {

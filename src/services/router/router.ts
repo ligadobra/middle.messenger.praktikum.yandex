@@ -3,8 +3,8 @@ import { Route } from "./route";
 export class Router {
   static __instance: any;
 
-  public routes: Route[];
-  public history: History;
+  private routes: Route[];
+  private history: History;
   private _currentRoute: any;
   private _rootQuery: any;
 
@@ -21,7 +21,7 @@ export class Router {
     Router.__instance = this;
   }
 
-  use(pathname: string, block: any) {
+  public use(pathname: string, block: any) {
     const route = new Route(pathname, block, { rootQuery: this._rootQuery });
 
     this.routes.push(route);
@@ -29,7 +29,7 @@ export class Router {
     return this;
   }
 
-  start() {
+  public start() {
     window.onpopstate = ((event: any) => {
       this._onRoute(event.currentTarget.location.pathname);
     }).bind(this);
@@ -37,8 +37,21 @@ export class Router {
     this._onRoute(window.location.pathname);
   }
 
-  _onRoute(pathname: string) {
-    const route = this.getRoute(pathname);
+  public go(pathname: string) {
+    this.history.pushState({}, "", pathname);
+    this._onRoute(pathname);
+  }
+
+  public back() {
+    this.history.back();
+  }
+
+  public forward() {
+    this.history.forward();
+  }
+
+  private _onRoute(pathname: string) {
+    const route = this._getRoute(pathname);
     if (!route) {
       return;
     }
@@ -51,20 +64,7 @@ export class Router {
     route.render();
   }
 
-  go(pathname: string) {
-    this.history.pushState({}, "", pathname);
-    this._onRoute(pathname);
-  }
-
-  back() {
-    this.history.back();
-  }
-
-  forward() {
-    this.history.forward();
-  }
-
-  getRoute(pathname) {
+  private _getRoute(pathname) {
     return this.routes.find((route) => route.match(pathname));
   }
 }

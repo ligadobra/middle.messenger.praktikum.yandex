@@ -1,4 +1,4 @@
-import { Component } from "../../services/component";
+import { Component } from "../../services/component/component";
 import "../../components/button";
 import tpl from "./auth.layout";
 

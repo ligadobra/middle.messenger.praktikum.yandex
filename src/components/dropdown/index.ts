@@ -1,4 +1,4 @@
-import { Component } from "../../services/component";
+import { Component } from "../../services/component/component";
 import tpl from "./dropdown";
 
 export default class Dropdown extends Component {

@@ -1,6 +1,6 @@
 import { currentPath } from "../../constants/system";
 import routes from "../../routes";
-import { Component } from "../../services/component";
+import { Component } from "../../services/component/component";
 import { connect } from "../../services/connect";
 import {
   checkEmail,

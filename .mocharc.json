@@ -1,0 +1,10 @@
+{
+  "extension": ["ts"],
+  "spec": "./src/**/*.spec.ts",
+  "recursive": true,
+  "require": [
+    "ts-node/register",
+    "tsconfig-paths/register",
+    "jsdom-global/register"
+  ]
+}

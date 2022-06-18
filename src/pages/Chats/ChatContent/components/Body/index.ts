@@ -1,4 +1,4 @@
-import { Component } from "../../../../../services/component";
+import { Component } from "../../../../../services/component/component";
 import { connect } from "../../../../../services/connect";
 import store from "../../../../../services/store";
 import tpl from "./chat-content-messages";
