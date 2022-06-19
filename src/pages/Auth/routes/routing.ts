@@ -6,7 +6,6 @@ const route = new Router(".app");
 function menuCheck(path: string) {
   const signin = document.querySelectorAll("#signin");
   const registration = document.querySelectorAll("#registration");
-  console.log(signin, registration, path);
   if (path === routes.home) {
     signin.forEach((item) => item.classList?.add("signin-active-link"));
     registration.forEach((item) =>

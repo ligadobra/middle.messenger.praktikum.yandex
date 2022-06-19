@@ -2,7 +2,7 @@ import { expect } from "chai";
 import Handlebars from "handlebars";
 import { JSDOM } from "jsdom";
 
-describe.only("handlebars", () => {
+describe("handlebars", () => {
   beforeEach(() => {
     const dom = new JSDOM('<div class="app"></div>', {
       url: "http://localhost:3000",

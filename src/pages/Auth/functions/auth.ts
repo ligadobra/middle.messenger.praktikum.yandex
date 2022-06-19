@@ -1,5 +1,6 @@
 import { GetUserApi, SignInApi, SignUpApi } from "../../../api/auth";
 import { GetChatsApi } from "../../../api/chats";
+import { firstInit } from "../../../controllers/init-controller";
 import { goToRoute } from "../../../functions/go-to-route";
 import routes from "../../../routes";
 import store from "../../../services/store";
@@ -22,12 +23,7 @@ export function signIn() {
     login: formData.login,
     password: formData.password,
   }).then(() => {
-    GetUserApi.create().then((data: any) => {
-      store.set("user", JSON.parse(data.user.response));
-      GetChatsApi.create().then((data: any) => {
-        goToRoute(routes.messenger);
-      });
-    });
+    firstInit();
   });
 }
 
@@ -54,11 +50,6 @@ export function signUp() {
     password: formData.password,
     phone: formData.phone,
   }).then(() => {
-    GetUserApi.create().then((data: any) => {
-      store.set("user", JSON.parse(data.user.response));
-      GetChatsApi.create().then((data: any) => {
-        goToRoute(routes.messenger);
-      });
-    });
+    firstInit();
   });
 }

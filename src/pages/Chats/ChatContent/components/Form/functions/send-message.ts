@@ -1,3 +1,4 @@
+import { checkMenuClick } from "../../../../../../functions/check-menu-click";
 import { WSModel } from "../../../../../../services/websockets";
 import { executeAllChecks } from "../../../../../../utils/validate";
 import { getMessageFormData } from "./get-send-message-data";
@@ -12,5 +13,9 @@ export function SendMessage() {
         type: "message",
       })
     );
+
+    setTimeout(() => {
+      checkMenuClick();
+    }, 1000);
   }
 }

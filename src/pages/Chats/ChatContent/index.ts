@@ -11,6 +11,7 @@ class ChatContent extends Component {
 function mapStateToProps(state) {
   return {
     messages: state.messages,
+    currentChat: state.currentChat,
   };
 }
 

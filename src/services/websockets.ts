@@ -8,7 +8,9 @@ export class WSModel {
     const instance = new WebSocket(
       WSChats + "/" + [id, chatId, token].join("/")
     );
-    WSModel.instance = instance;
-    return instance;
+    if (WSModel.instance !== instance) {
+      WSModel.instance = instance;
+    }
+    return WSModel.instance;
   }
 }

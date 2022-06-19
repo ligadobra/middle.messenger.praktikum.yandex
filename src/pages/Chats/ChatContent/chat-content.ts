@@ -17,7 +17,11 @@ import { handleChatAvatar } from "./components/Header/Avatar/functions/handle-av
 import Modal from "../../../components/modal";
 import { CloseComponent } from "../../../components/modal/modal";
 import AddUsersToChat from "./components/Header/AddUsers";
-import { AddUsersListComponent, AddUsersButtonComponent } from "./components/Header/AddUsers/add-user-to-chat";
+import {
+  AddUsersListComponent,
+  AddUsersButtonComponent,
+} from "./components/Header/AddUsers/add-user-to-chat";
+import "./chat-content.scss";
 
 export const ChatContentAvatarComponent = new ChatContentAvatar("div", {
   attr: {

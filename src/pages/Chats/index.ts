@@ -1,5 +1,4 @@
 import { Component } from "../../services/component/component";
-import { connect } from "../../services/connect";
 import tpl from "./chats";
 
 class Chats extends Component {
@@ -8,10 +7,4 @@ class Chats extends Component {
   }
 }
 
-function mapStateToProps(state: any) {
-  return {
-    chats: state.chats,
-  };
-}
-
-export default connect(Chats, mapStateToProps);
+export default Chats;

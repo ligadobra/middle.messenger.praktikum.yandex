@@ -1,11 +1,7 @@
-import { GetChatTokenApi } from "./api/messages";
-import Handlebars from "handlebars";
 import { currentPath } from "./constants/system";
-import { ChartsController } from "./controllers/chats-controller";
 import { UserController } from "./controllers/user-controller";
 import { goToRoute } from "./functions/go-to-route";
 import { useRouter } from "./hooks/useRouter";
-import { useWebSockets } from "./hooks/useWebSockets";
 import {
   AuthLayoutComponentIn,
   AuthLayoutComponentUp,
@@ -13,43 +9,9 @@ import {
   ProfileComponent,
 } from "./layouts/create-layouts";
 import routes from "./routes";
-import store from "./services/store";
-import { WSModel } from "./services/websockets";
-
-Handlebars.registerHelper(
-  "when",
-  function (operand_1, operator, operand_2, options) {
-    var operators = {
-        eq: function (l, r) {
-          return l == r;
-        },
-        noteq: function (l, r) {
-          return l != r;
-        },
-        gt: function (l, r) {
-          return Number(l) > Number(r);
-        },
-        or: function (l, r) {
-          return l || r;
-        },
-        and: function (l, r) {
-          return l && r;
-        },
-        "%": function (l, r) {
-          return l % r === 0;
-        },
-      },
-      result = operators[operator](operand_1, operand_2);
-
-    if (result) return options.fn(this);
-    else return options.inverse(this);
-  }
-);
-
-Handlebars.registerHelper("date", function (date) {
-  const newDate = new Date(date);
-  return `${newDate.getHours()}:${newDate.getMinutes()}`;
-});
+import { initChats } from "./controllers/init-controller";
+import "./services/handlebars-helpers";
+import { checkMenuClick } from "./functions/check-menu-click";
 
 const router = useRouter(".app");
 
@@ -65,23 +27,8 @@ UserController.getUser().catch(() => {
 });
 
 if (currentPath === routes.messenger) {
-  ChartsController.getChats().then(() => {
-    store.set("currentChat", store.getState()?.chats[0]);
-    GetChatTokenApi.create(store.getState()?.chats[0].id).then((data: any) => {
-      store.set("currentChat.token", JSON.parse(data.response).token);
-      useWebSockets(
-        store.getState()?.user.id,
-        store.getState()?.chats[0].id,
-        store.getState()?.currentChat.token
-      );
-    });
-
-    setInterval(() => {
-      WSModel.instance.send(
-        JSON.stringify({
-          type: "ping",
-        })
-      );
-    }, 20000);
-  });
+  initChats();
+  setTimeout(() => {
+    checkMenuClick();
+  }, 2000);
 }

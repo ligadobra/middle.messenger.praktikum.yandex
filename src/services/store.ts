@@ -24,7 +24,6 @@ class Store extends EventBus {
   }
 
   public unshift(path: string, value: unknown) {
-    //set(this.state, path, value);
     this.state[path].unshift(value);
 
     if (!this.listeners[StoreEvents.Updated]) {

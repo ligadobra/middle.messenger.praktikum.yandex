@@ -8,6 +8,13 @@ export const ChatTextField = new TextField("div", {
   attr: {
     class: "chat-send-form__field",
   },
+  events: {
+    keypress: (e) => {
+      if (e && e.keyCode == 13) {
+        SendMessage();
+      }
+    },
+  },
   name: "message",
   placeholder: "Ваше сообщение",
 });
