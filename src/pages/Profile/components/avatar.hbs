@@ -1,0 +1,11 @@
+<input type="file" name="avatar" class="input_avatar" style="display: none;" />
+
+{{#if src}}
+  <img src={{src}} alt="avatar" class="profile__avatar" />
+{{/if}}
+
+{{#unless src}}
+  <div class="profile__avatar">
+    <img src="/svg/default-avatar.svg" />
+  </div>
+{{/unless}}

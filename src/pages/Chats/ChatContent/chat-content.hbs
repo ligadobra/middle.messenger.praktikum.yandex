@@ -1,4 +1,12 @@
+{{#if currentChat}}
+  {{{ChatContentHeaderComponent}}}
+  {{{ChatBodyComponent}}}
+  {{{ChatFormComponent}}}
+  {{{AddUsersToChatModal}}}
+{{/if}}
 
-{{{ChatContentHeaderComponent}}}
-{{{ChatBodyComponent}}}
-{{{ChatFormComponent}}}
+{{#unless currentChat}}
+  <div class="chat-content__empty">
+    Выберите чат!
+  </div>
+{{/unless}}

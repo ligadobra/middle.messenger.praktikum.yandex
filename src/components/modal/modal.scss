@@ -1,0 +1,25 @@
+.modal {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  height: fit-content;
+  width: fit-content;
+
+  display: none;
+  min-width: 450px;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 0 50px #0000001c;
+
+  z-index: 1;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+}

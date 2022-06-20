@@ -1,9 +1,15 @@
-<a href="/profile">
-  {{#if avatar}}
-    <img src="{{avatar}}" alt="avatar" />
-  {{/if}}
-  {{#unless avatar}}
-    <div class="chat-content-header-avatar__pic"></div>
-  {{/unless}}
-</a>
-<a href="/profile" class="chat-content-header-avatar__label">{{name}}</a>
+<input
+  type="file"
+  name="chat-content-header-avatar"
+  class="chat-content-header-avatar__input"
+/>
+
+{{#if avatar}}
+  <img src="{{avatar}}" alt="avatar" />
+{{/if}}
+{{#unless avatar}}
+  <div class="chat-content-header-avatar__pic">
+    <img src="/svg/default-avatar.svg" />
+  </div>
+{{/unless}}
+<div class="chat-content-header-avatar__label">{{title}}</div>

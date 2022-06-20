@@ -1,8 +1,10 @@
-import { Component } from "../../services/component";
+import { Component } from "../../services/component/component";
 import tpl from "./chats";
 
-export default class Chats extends Component {
+class Chats extends Component {
   render(): object {
     return this.compile(tpl);
   }
 }
+
+export default Chats;

@@ -1,34 +1,34 @@
 <div class="chat-messages__container">
   {{#each messages}}
     <div class="message">
-      {{#if isMy}}
+      {{#when ../myId 'eq' user_id}}
         <div class="message__my">
-          <div class="message__text">{{message}}</div>
+          <div class="message__text">{{content}}</div>
           <div class="message__right-side">
             <div class="message__read">
-              {{#if isRead}}
+              {{#if is_read}}
                 <img src="/svg/check-yes.svg" />
               {{/if}}
-              {{#unless isRead}}
+              {{#unless is_read}}
                 <img src="/svg/check-no.svg" />
               {{/unless}}
             </div>
             <div class="message__time">
-              {{time}}
+              {{date time}}
             </div>
           </div>
         </div>
-      {{/if}}
-      {{#unless isMy}}
+      {{/when}}
+      {{#when ../myId 'noteq' user_id}}
         <div class="message__not-my">
-          <div class="message__text">{{message}}</div>
+          <div class="message__text">{{content}}</div>
           <div class="message__right-side">
             <div class="message__time">
-              {{time}}
+              {{date time}}
             </div>
           </div>
         </div>
-      {{/unless}}
+      {{/when}}
     </div>
   {{/each}}
 </div>

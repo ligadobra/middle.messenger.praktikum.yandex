@@ -1,1 +1,6 @@
-{{{AuthPage}}}
+{{#if isAuthIn}}
+  {{{AuthPageIn}}}
+{{/if}}
+{{#unless isAuthIn}}
+  {{{AuthPageUp}}}
+{{/unless}}

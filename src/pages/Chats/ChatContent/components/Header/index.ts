@@ -1,4 +1,4 @@
-import { Component } from "../../../../../services/component";
+import { Component } from "../../../../../services/component/component";
 import tpl from "./chat-content-header";
 
 export default class ChatContentHeader extends Component {
