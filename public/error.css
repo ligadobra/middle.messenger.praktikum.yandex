@@ -13,7 +13,7 @@ p {
 
 @font-face {
   font-family: "Qanelas-Regular";
-  src: url("http://localhost:3000/fonts/Qanelas-Regular.ttf");
+  src: url("fonts/Qanelas-Regular.ttf");
 }
 
 .errors {
