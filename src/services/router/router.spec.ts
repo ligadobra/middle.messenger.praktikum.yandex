@@ -18,10 +18,10 @@ describe("Router", () => {
   });
 
   describe(".use", () => {
-    it("Должен воззвращаться экземпляр класса Router", () => {
+    it("Должен возвращаться экземпляр класса Router", () => {
       const router = new Router(".app");
 
-      const result = router.use("/page1", class {});
+      const result = router.use("/page2", class {});
 
       expect(result).to.eq(router);
     });
@@ -49,9 +49,9 @@ describe("Router", () => {
       expect(document.getElementsByClassName("test-app")[0]).not.to.be
         .undefined;
     });
-    
+
     it("Должен меняться url", () => {
-      expect(window.location.pathname).to.eq("/page1");
+      expect(window.location.pathname).to.eq("/");
     });
   });
 });

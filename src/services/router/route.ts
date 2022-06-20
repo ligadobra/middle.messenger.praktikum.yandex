@@ -44,6 +44,7 @@ export class Route {
     }
     
     root.innerHTML = "";
+    console.log(this._block)
     root.appendChild(this._block.getContent());
   }
 }

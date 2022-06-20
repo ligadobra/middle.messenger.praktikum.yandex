@@ -14,6 +14,8 @@ export function SendMessage() {
       })
     );
 
+    (document.getElementsByClassName("chat-send-form")[0] as any).reset();
+
     setTimeout(() => {
       checkMenuClick();
     }, 1000);

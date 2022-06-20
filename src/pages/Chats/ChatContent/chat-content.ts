@@ -65,7 +65,7 @@ export const ChatContentHeaderComponent = new ChatContentHeader("div", {
   ChatContentHamburgerComponent,
 });
 
-export const ChatFormComponent = new ChatForm("div", {
+export const ChatFormComponent = new ChatForm("form", {
   attr: {
     class: "chat-send-form",
   },

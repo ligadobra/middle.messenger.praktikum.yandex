@@ -11,7 +11,9 @@ export const ChatTextField = new TextField("div", {
   events: {
     keypress: (e) => {
       if (e && e.keyCode == 13) {
+        e.preventDefault();
         SendMessage();
+        return false;
       }
     },
   },
@@ -25,6 +27,8 @@ export const ButtonSend = new Button("img", {
   },
   events: {
     click: (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       SendMessage();
     },
   },
