@@ -23,8 +23,8 @@ app.use(function (req, res, next) {
 app.use(express.static(__dirname + "/dist"));
 app.use(express.static(__dirname + "/public"));
 
-app.use("/svg", express.static(Path.resolve("/public/svg")));
-app.use("/fonts", express.static(Path.resolve("/public/fonts")));
+app.use("/svg", express.static(__dirname + Path.resolve("/public/svg")));
+app.use("/fonts", express.static(__dirname + Path.resolve("/public/fonts")));
 
 app.get("/", apiLimiter, (req, res) =>
   res.sendFile(__dirname + "/dist/index.html")
