@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "watch": "parcel watch ./src/index.html",
-    "build": "parcel build ./src/index.html",
+    "build": "parcel build ./src/index.html public/svg/**",
     "start": "npm run build && ts-node index.ts",
     "test": "mocha"
   },
