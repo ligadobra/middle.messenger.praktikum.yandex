@@ -17,6 +17,11 @@ Chat-Design: https://www.figma.com/file/VEiHMZNKrOcmhe1ECR9VHW/%D0%94%D0%BE%D0%B
 Реализовано тестирование Router, Component, Fetch, Handlebars.
 Реализована защита от DOS и XSS посредством внедрения rate limit, написания Content-Security-Policy и указания заголовков X-XSS-Protection.
 
+Изменен сборщик с Parcel на Webpack
+Подключен docker
+Приложение размещено на heroku: https://ydobrochat.herokuapp.com/messenger
+Подключена утилита прекоммита - husky и реализован прекоммит с проведением тестов и линтинга
+
 Запустить тесты можно следующей командой: npm test
 
 Ссылка на pull request: https://github.com/ligadobra/middle.messenger.praktikum.yandex/pull/3
