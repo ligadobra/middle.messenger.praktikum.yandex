@@ -1,4 +1,4 @@
-export class BaseAPI {
+class BaseAPI {
   create() {
     throw new Error("Not implemented");
   }
@@ -15,3 +15,5 @@ export class BaseAPI {
     throw new Error("Not implemented");
   }
 }
+
+export default BaseAPI

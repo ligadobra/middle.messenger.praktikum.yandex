@@ -1,7 +1,7 @@
 import { DefaultHeader } from "../constants/api-headers";
 import { AuthAPIInstance, TestAPIInstance } from "../constants/api-instances";
 import { TSignUpProps, TSignInProps } from "../types/request-data/auth";
-import { BaseAPI } from "./base-api";
+import BaseAPI from "./base-api";
 
 export class SignUpApi extends BaseAPI {
   static create(signUpProps: TSignUpProps) {

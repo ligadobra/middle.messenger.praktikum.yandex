@@ -1,6 +1,6 @@
 import { DefaultHeader } from "../constants/api-headers";
 import { ChatsAPIInstance } from "../constants/api-instances";
-import { BaseAPI } from "./base-api";
+import BaseAPI from "./base-api";
 
 export class GetChatTokenApi extends BaseAPI {
   static create(chatId: number) {

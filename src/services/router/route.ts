@@ -42,9 +42,8 @@ export class Route {
     if (!root) {
       throw new Error("Root not found");
     }
-    
+
     root.innerHTML = "";
-    console.log(this._block)
     root.appendChild(this._block.getContent());
   }
 }

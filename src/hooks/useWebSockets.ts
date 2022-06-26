@@ -34,7 +34,6 @@ export function useWebSockets(
       !store.getState().messages?.length ||
       (change && !checkNewMessage(JSON.parse(event.data)))
     ) {
-      console.log(JSON.parse(event.data));
       store.set("messages", JSON.parse(event.data));
       callback?.();
     } else {

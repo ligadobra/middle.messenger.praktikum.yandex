@@ -1,7 +1,7 @@
 import { DefaultHeader } from "../constants/api-headers";
 import { UsersAPIInstance } from "../constants/api-instances";
 import { TUserEdit, TUserPassword } from "../types/request-data/user";
-import { BaseAPI } from "./base-api";
+import BaseAPI from "./base-api";
 
 export class EditUserApi extends BaseAPI {
   static create(userProps: TUserEdit) {
