@@ -8,13 +8,8 @@
     "build": "webpack --config=webpack.config.js",
     "start": "npm run build && ./node_modules/.bin/ts-node index.ts",
     "lint": "node_modules/.bin/eslint .",
-    "test": "mocha"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "echo \"precommit\"",
-      "pre-push": "echo \"prepush\""
-    }
+    "test": "mocha",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
