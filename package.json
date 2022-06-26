@@ -12,8 +12,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm-run-all test lint",
-      "pre-push": "npm-run-all build"
+      "pre-commit": "echo \"precommit\"",
+      "pre-push": "echo \"prepush\""
     }
   },
   "keywords": [],
