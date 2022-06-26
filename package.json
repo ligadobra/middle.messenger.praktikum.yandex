@@ -7,9 +7,10 @@
     "watch": "parcel watch ./src/index.html",
     "build": "webpack --config=webpack.config.js",
     "start": "npm run build && ./node_modules/.bin/ts-node index.ts",
-    "lint": "node_modules/.bin/eslint .",
+    "lint": "eslint src/",
     "test": "mocha",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "pre-commit": "npm run test && npm run lint"
   },
   "keywords": [],
   "author": "",
