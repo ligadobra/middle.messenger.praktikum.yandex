@@ -1,26 +1,24 @@
-module.exports = function (operand_1, operator, operand_2, options) {
-  var operators = {
-      eq: function (l, r) {
-        return l == r;
-      },
-      noteq: function (l, r) {
-        return l != r;
-      },
-      gt: function (l, r) {
-        return Number(l) > Number(r);
-      },
-      or: function (l, r) {
-        return l || r;
-      },
-      and: function (l, r) {
-        return l && r;
-      },
-      "%": function (l, r) {
-        return l % r === 0;
-      },
+module.exports = (leftOperand, operator, rightOperand, options) => {
+  const operators = {
+    eq(l, r) {
+      return l === r;
     },
-    result = operators[operator](operand_1, operand_2);
+    noteq(l, r) {
+      return l !== r;
+    },
+    gt(l, r) {
+      return Number(l) > Number(r);
+    },
+    or(l, r) {
+      return l || r;
+    },
+    and(l, r) {
+      return l && r;
+    },
+    "%": (l, r) => l % r === 0,
+  };
+  const result = operators[operator](leftOperand, rightOperand);
 
   if (result) return options.fn(this);
-  else return options.inverse(this);
+  return options.inverse(this);
 };

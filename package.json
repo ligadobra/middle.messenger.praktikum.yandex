@@ -7,7 +7,14 @@
     "watch": "parcel watch ./src/index.html",
     "build": "webpack --config=webpack.config.js",
     "start": "npm run build && ./node_modules/.bin/ts-node index.ts",
+    "lint": "node_modules/.bin/eslint .",
     "test": "mocha"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm-run-all test lint",
+      "pre-push": "npm-run-all build"
+    }
   },
   "keywords": [],
   "author": "",
@@ -31,6 +38,7 @@
     "file-loader": "^6.2.0",
     "handlebars-webpack-plugin": "^2.2.1",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^8.0.1",
     "jsdom": "19.0.0",
     "jsdom-global": "3.0.2",
     "mocha": "^10.0.0",
