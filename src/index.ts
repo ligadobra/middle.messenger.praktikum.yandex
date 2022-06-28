@@ -10,8 +10,9 @@ import {
 } from "./layouts/create-layouts";
 import routes from "./routes";
 import { initChats } from "./controllers/init-controller";
-import "./services/handlebars-helpers";
+import "./services/helpers/when";
 import { checkMenuClick } from "./functions/check-menu-click";
+import "./helper.scss";
 
 const router = useRouter(".app");
 
